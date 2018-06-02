@@ -9,7 +9,7 @@ module.exports.loop = function () {
         // for(var room_name in Game.rooms){
         //     console.log(Game.rooms[room_name].energyAvailable);
         // }
-        var role = 'upgrader';
+        var role = 'harvester';
         
         var role_spec = [                
                 [WORK, CARRY, MOVE, MOVE], // harvester
