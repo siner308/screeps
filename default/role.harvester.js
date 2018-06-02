@@ -31,11 +31,22 @@ var role_harvester = {
             }
             
             else{
-                var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-                creep.moveTo(targets[0]);
-                creep.transfer(targets[0], RESOURCE_ENERGY);
+                var targets = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_EXTENSION 
+                    || structure.structureType == STRUCTURE_SPAWN) 
+                    && structure.energy < structure.energyCapacity;
+                }});
                 
-                creep.say('🏠');
+                if(targets.length > 0){
+                    if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                        creep.moveTo(targets[0]);
+                        creep.say('🏠');
+                    }
+                }
+                
+                // creep.moveTo(targets[0]);
+                // creep.transfer(targets[0], RESOURCE_ENERGY);
+                
             }
         }
     }

@@ -26,12 +26,15 @@ var role_builder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                     creep.say('☄️');
                 }
+                else{
+                    creep.say('☄️');
+                }
             }
         }
         else{
             var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
             }
             else{
                 creep.say('⛏️');
