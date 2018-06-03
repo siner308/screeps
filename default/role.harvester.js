@@ -12,6 +12,7 @@ var role_harvester = {
             }
             
             else{
+                creep.withdraw(target, RESOURCE_ENERGY);
                 creep.say('⛏️', true);
             }
         }

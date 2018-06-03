@@ -25,6 +25,7 @@ var role_repairer = {
                          || (structure.structureType == STRUCTURE_EXTENSION) 
                          || (structure.structureType == STRUCTURE_SPAWN) 
                          || (structure.structureType == STRUCTURE_TOWER)
+                         || (structure.structureType == STRUCTURE_CONTAINER)
                         ) && (structure.hits != structure.hitsMax);
                     }
             });
