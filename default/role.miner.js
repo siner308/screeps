@@ -16,27 +16,29 @@ var role_miner = {
         
         // if arrived workplace, let's mining
         else{
-            
-            // if full, transfer to container
-            if(creep.carry.energy == creep.carryCapacity){
+            creep.harvest(sources[1]);
+            creep.transfer(container, RESOURCE_ENERGY);
+            creep.say('⛏', true);
+            // // if full, transfer to container
+            // if(creep.carry.energy == creep.carryCapacity){
                 
-                // if is not near from container
-                if(creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.transfer(container, RESOURCE_ENERGY);
-                    creep.say('transfer to container', true);
-                }
+            //     // if is not near from container
+            //     if(creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+            //         creep.transfer(container, RESOURCE_ENERGY);
+            //         creep.say('transfer to container', true);
+            //     }
                 
-                // go to container
-                else{
-                    creep.moveTo(container);
-                }
-            }
+            //     // go to container
+            //     else{
+            //         creep.moveTo(container);
+            //     }
+            // }
             
-            // if not full, keep mining
-            else{
-                creep.harvest(sources[1]);
-                creep.say('⛏', true);
-            }
+            // // if not full, keep mining
+            // else{
+            //     creep.harvest(sources[1]);
+            //     creep.say('⛏', true);
+            // }
         }
     }
 };

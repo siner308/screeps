@@ -1,6 +1,6 @@
 var find_structures = require('find.structures');
 
-var role_miner = {
+var role_miner2 = {
     run: function(creep){
         
         var structures = creep.room.find(FIND_MY_STRUCTURES);
@@ -16,30 +16,32 @@ var role_miner = {
         
         // if arrived workplace, let's mining
         else{
-            
+            creep.harvest(sources[1]);
+            creep.transfer(container, RESOURCE_ENERGY);
+            creep.say('⛏', true);
             // if full, transfer to container
-            if(creep.carry.energy == creep.carryCapacity){
+            // if(creep.carry.energy == creep.carryCapacity){
                 
-                // if is not near from container
-                if(creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.transfer(container, RESOURCE_ENERGY);
-                    creep.say('transfer to container', true);
-                }
+            //     // if is not near from container
+            //     if(creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+            //         creep.transfer(container, RESOURCE_ENERGY);
+            //         creep.say('transfer to container', true);
+            //     }
                 
-                // go to container
-                else{
-                    creep.moveTo(container);
-                }
-            }
+            //     // go to container
+            //     else{
+            //         creep.moveTo(container);
+            //     }
+            // }
             
-            // if not full, keep mining
-            else{
-                creep.harvest(sources[1]);
-                creep.say('⛏', true);
-            }
+            // // if not full, keep mining
+            // else{
+            //     creep.harvest(sources[1]);
+            //     creep.say('⛏', true);
+            // }
         }
     }
 };
 
 
-module.exports = role_miner;
+module.exports = role_miner2;

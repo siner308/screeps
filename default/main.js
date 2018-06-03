@@ -6,6 +6,24 @@ var role_miner = require('role.miner');
 var role_miner2 = require('role.miner2');
 
 module.exports.loop = function () {
+    
+    // temporary tower code
+    var tower = Game.getObjectById('dffac25fcf957005e55d5cd2');
+    if(tower) {
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => structure.hits < structure.hitsMax
+        });
+        if(closestDamagedStructure) {
+            tower.repair(closestDamagedStructure);
+        }
+
+        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(closestHostile) {
+            tower.attack(closestHostile);
+        }
+    }
+    // end of tower code
+    
     for(var room_name in Game.rooms);
     
     // clear memory
@@ -37,7 +55,7 @@ module.exports.loop = function () {
             role_repairer.run(creep);
         }
         
-        if(creep.memory.role == 'miner'){
+        if(creep.memory.role == 'miner1'){
             role_miner.run(creep);
         }
         
@@ -58,6 +76,7 @@ module.exports.loop = function () {
                 'upgrader',
                 'builder',
                 'repairer',
+                'miner1',
                 'miner2'
             ]
             
@@ -82,8 +101,8 @@ module.exports.loop = function () {
         var role_count_minimum = [
                 2,  // harvester
                 10, // upgrader
-                2,  // builder
-                2,  // repairer
+                3,  // builder
+                3,  // repairer
                 3,   // miner
                 2   // miner2
             ]
@@ -99,33 +118,46 @@ module.exports.loop = function () {
         
         // check role count    
         for(var i = 0; i < 6; i++){
-            console.log(get_role_count[i], role_count_minimum[i]);
+            console.log(role_name[i], get_role_count[i], role_count_minimum[i]);
         }
        
         // make creeps by role count
-        if(get_role_count[0] < role_count_minimum[0]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[0], role_type[0] + Game.time, {memory: {role: role_name[0]}});
-        }
-        
-        if(get_role_count[1] < role_count_minimum[1]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[1], role_type[1] + Game.time, {memory: {role: role_name[1]}});
-        }
-        
-        if(get_role_count[2] < role_count_minimum[2]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[2], role_type[2] + Game.time, {memory: {role: role_name[2]}});
-        }
-        
-        if(get_role_count[3] < role_count_minimum[3]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[3], role_type[3] + Game.time, {memory: {role: role_name[3]}});
-        }
-        
+
+        // miner1
         if(get_role_count[4] < role_count_minimum[4]){
             Game.spawns['spawn_first'].spawnCreep(role_spec[4], role_type[4] + Game.time, {memory: {role: role_name[4]}});
         }
         
-        if(get_role_count[5] < role_count_minimum[5]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[5], role_type[5] + Game.time, {memory: {role: role_name[5]}});
+        // miner2
+        else{
+            if(get_role_count[5] < role_count_minimum[5]){
+                Game.spawns['spawn_first'].spawnCreep(role_spec[5], role_type[5] + Game.time, {memory: {role: role_name[5]}});
+            }
+            
+            // harvester
+            else{  
+                if(get_role_count[0] < role_count_minimum[0]){
+                    Game.spawns['spawn_first'].spawnCreep(role_spec[0], role_type[0] + Game.time, {memory: {role: role_name[0]}});
+                }
+                
+                else{
+                    if(get_role_count[1] < role_count_minimum[1]){
+                        Game.spawns['spawn_first'].spawnCreep(role_spec[1], role_type[1] + Game.time, {memory: {role: role_name[1]}});
+                    }
+                    
+                    if(get_role_count[2] < role_count_minimum[2]){
+                        Game.spawns['spawn_first'].spawnCreep(role_spec[2], role_type[2] + Game.time, {memory: {role: role_name[2]}});
+                    }
+                    
+                    if(get_role_count[3] < role_count_minimum[3]){
+                        Game.spawns['spawn_first'].spawnCreep(role_spec[3], role_type[3] + Game.time, {memory: {role: role_name[3]}});
+                    }
+                }  
+            }
+            
         }
+        
+        
         
         console.log(creep.memory.role);
     // }

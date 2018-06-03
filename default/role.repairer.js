@@ -35,7 +35,7 @@ var role_repairer = {
                 }
                 
                 else{
-                    creep.say('수리', true);
+                    creep.say('뿅', true);
                     creep.repair(targets[0]);
                 }
             }
