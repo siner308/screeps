@@ -30,6 +30,10 @@ var role_builder = {
                     creep.say('☄️');
                 }
             }
+            else{
+                creep.moveTo(24, 20);
+                creep.say('할일없다~');
+            }
         }
         else{
             var sources = creep.room.find(FIND_SOURCES);

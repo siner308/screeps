@@ -16,7 +16,7 @@ var role_upgrader = {
             // if full, go to upgrading place
             else if(creep.carry.energy == creep.carryCapacity){
                 creep.moveTo(creep.room.controller);
-                creep.say('가즈아~');
+                creep.say('업글~');
             }
             
             // if harvesting, keep going

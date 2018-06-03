@@ -26,23 +26,27 @@ var role_harvester = {
                     creep.moveTo(Game.spawns['spawn_first']);
                     creep.say('🏠');
                 }
-                
-                    creep.say('🏠');
             }
             
             else{
+                for(var room_name in Game.rooms);
                 var targets = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
                     return (structure.structureType == STRUCTURE_EXTENSION 
                     || structure.structureType == STRUCTURE_SPAWN) 
                     && structure.energy < structure.energyCapacity;
                 }});
                 
-                if(targets.length > 0){
+                if(Game.rooms[room_name].energyAvailable == Game.rooms[room_name].energyCapacityAvailable){
+                    creep.say('꽉찼다~');
+                    creep.moveTo(2, 19);
+                }
+                else if(targets.length > 0){
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(targets[0]);
                         creep.say('🏠');
                     }
                 }
+
                 
                 // creep.moveTo(targets[0]);
                 // creep.transfer(targets[0], RESOURCE_ENERGY);
