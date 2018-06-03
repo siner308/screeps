@@ -1,4 +1,5 @@
 var find_structures = require('find.structures');
+var role_upgrader = require('role.upgrader');
 
 var role_harvester = {
     run: function(creep){
@@ -37,6 +38,7 @@ var role_harvester = {
                 if(Game.rooms[room_name].energyAvailable == Game.rooms[room_name].energyCapacityAvailable){
                     creep.say('꽉찼다~', true);
                     creep.moveTo(2, 19);
+                    role_upgrader.run(creep);
                 }
                 else if(targets.length > 0){
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){

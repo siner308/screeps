@@ -17,21 +17,31 @@ module.exports = {
         if (creep.memory.cleaning) {
             let droppedResource = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES);
             console.log(droppedResource);
-            if (creep.pickup(droppedResource) === ERR_NOT_IN_RANGE) {
+            if (creep.pickup(droppedResource) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(droppedResource, {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.say('가지러간당', true);
             }
+            else{
+                creep.pickup(droppedResource);
+            }
+            
         }
         
-        if (!creep.memory.cleaning && _.sum(creep.carry) == creep.carryCapacity) {
-            let storage = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
-                filter: (s) => s.structureType == STRUCTURE_STORAGE && _.sum(s.store) < s.storeCapacity
-            });
-            if (container) {
-                for(const resourceType in creep.carry) {
-                    if (creep.transfer(container, resourceType) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(container, {visualizePathStyle: {stroke: '#ffaa00'}});
-                    }
-                }
+        else
+        // (!creep.memory.cleaning && (_.sum(creep.carry) == creep.carryCapacity)) 
+        {                
+            for(var room_name in Game.rooms);
+                var targets = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_CONTAINER) 
+                    && structure.energy < structure.energyCapacity;
+                }});
+            if (creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(container);
+                creep.say('돌려준당', true);
+            }
+            else{
+                creep.transfer(container, RESOURCE_ENERGY);
+                creep.say('옮긴당', true);
             }
         }
     }

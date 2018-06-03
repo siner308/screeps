@@ -30,9 +30,16 @@ var role_builder = {
             }
         }
         else{
-            var sources = creep.room.find(FIND_SOURCES);
+            for(var room_name in Game.rooms);
+            var aaa = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
+                return (structure.structureType == STRUCTURE_EXTENSION 
+                || structure.structureType == STRUCTURE_SPAWN
+                || structure.structureType == STRUCTURE_CONTAINER)
+                && structure.energy != 0;
+            }});
+            
             if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                creep.moveTo(container, {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(container);
                 creep.say('⛏️', true);
             }
             else{

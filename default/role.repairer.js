@@ -1,4 +1,5 @@
 var find_structures = require('find.structures');
+var role_upgrader = require('role.upgrader');
 
 var role_repairer = {
 
@@ -41,8 +42,7 @@ var role_repairer = {
                 }
             }
             else{
-                creep.moveTo(24,15);
-                creep.say('no-target', true);
+                role_upgrader.run(creep);    
             }
         }
 	}
