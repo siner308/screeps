@@ -1,14 +1,8 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * var mod = require('role.builder');
- * mod.thing == 'a thing'; // true
- */
+var find_structures = require('find.structures');
 
 var role_builder = {
     run: function(creep){
+        var container = find_structures.containers(creep);
         
         if(creep.memory.building && creep.carry.energy == 0){
             creep.memory.building = false;
@@ -37,8 +31,8 @@ var role_builder = {
         }
         else{
             var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                creep.moveTo(container, {visualizePathStyle: {stroke: '#ffaa00'}});
                 creep.say('⛏️', true);
             }
             else{

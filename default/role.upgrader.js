@@ -10,31 +10,42 @@ var role_upgrader = {
         // if far from upgrading place
         if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE){
             
-            // if empty, go harvest
-            if(creep.carry.energy == 0){
-                    creep.moveTo(sources[1]);
+            // if empty, withdraw
+            if(creep.carry.energy != creep.carryCapacity){
+                
+                // moveTo container
+                if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(container);
                     creep.say('⛏️<<⏫', true);
+                }
+                
+                // withdraw
+                else{
+                    creep.withdraw(container, RESOURCE_ENERGY);
+                    creep.say('⛏️', true);
+                }
             }
             
-            // if full, go to upgrading place
-            else if(creep.carry.energy == creep.carryCapacity){
+            // go to upgrade
+            else{
                 creep.moveTo(creep.room.controller);
                 creep.say('⛏️>>⏫', true);
             }
-            
-            // if harvesting, keep going
-            else{
-                creep.harvest(sources[1]);
-                creep.say('⛏️', true);
-            }
+
         }
         
         else{
-            
             // if empty, go harvest
             if(creep.carry.energy == 0){
-                creep.moveTo(sources[1]);
-                creep.harvest(sources[1]);
+                if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(container);
+                    creep.say('⛏️<<⏫', true);
+                }
+                
+                else{
+                    creep.withdraw(container, RESOURCE_ENERGY);
+                    creep.say('⛏️', true);
+                }
             }
             
             // if not empty, upgrade it

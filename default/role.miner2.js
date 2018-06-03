@@ -9,8 +9,8 @@ var role_miner = {
         var container = find_structures.containers(creep);
         
         // if not in workplace, moveTo workplace
-        if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE){
-            creep.moveTo(sources[1]);
+        if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
+            creep.moveTo(sources[0]);
             creep.say('마이너당', true);
         }
         

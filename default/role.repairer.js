@@ -6,14 +6,14 @@ var role_repairer = {
     run: function(creep) {
         var container = find_structures.containers(creep);
         
-	    if(creep.carry.energy < creep.carryCapacity) {
+	    if(creep.carry.energy == 0) {
             if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(container);
-                creep.say('move to container', true);
+                creep.say('wd', true);
             }
             else{
                 creep.withdraw(container, RESOURCE_ENERGY);
-                creep.say('withdraw', true);
+                creep.say('wd', true);
             }
         }
         
@@ -25,7 +25,7 @@ var role_repairer = {
                          || (structure.structureType == STRUCTURE_EXTENSION) 
                          || (structure.structureType == STRUCTURE_SPAWN) 
                          || (structure.structureType == STRUCTURE_TOWER)
-                        ) && (structure.energy < structure.energyCapacity);
+                        ) && (structure.hits != structure.hitsMax);
                     }
             });
             
@@ -35,11 +35,12 @@ var role_repairer = {
                 }
                 
                 else{
-                    creep.say('repairing', true);
+                    creep.say('수리', true);
                     creep.repair(targets[0]);
                 }
             }
             else{
+                creep.moveTo(24,15);
                 creep.say('no-target', true);
             }
         }
