@@ -1,13 +1,20 @@
+var find_structures = require('find.structures');
+
 var role_repairer = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+        var container = find_structures.containers(creep);
+        
 	    if(creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+            if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(container);
+                creep.say('move to container', true);
             }
-            creep.say('repairer');
+            else{
+                creep.withdraw(container, RESOURCE_ENERGY);
+                creep.say('withdraw', true);
+            }
         }
         
         else {
@@ -21,20 +28,19 @@ var role_repairer = {
                         ) && (structure.energy < structure.energyCapacity);
                     }
             });
-            creep.say(targets[0]);
             
             if(targets.length > 0) {
-                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
                 
                 else{
-                    creep.say('repairing');
-                    creep.transfer(targets[0], RESOURCE_ENERGY);
+                    creep.say('repairing', true);
+                    creep.repair(targets[0]);
                 }
             }
             else{
-                creep.say('no-target');
+                creep.say('no-target', true);
             }
         }
 	}

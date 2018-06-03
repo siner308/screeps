@@ -16,7 +16,7 @@ var role_builder = {
         
         if(!creep.memory.building && (creep.carry.energy == creep.carryCapacity)){
             creep.memory.building = true;
-            creep.say('🚧');
+            creep.say('🚧', true);
         }
         
         if(creep.memory.building){
@@ -24,24 +24,25 @@ var role_builder = {
             if(targets.length){
                 if(creep.build(targets[0]) == ERR_NOT_IN_RANGE){
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
-                    creep.say('☄️');
+                    creep.say('☄️', true);
                 }
                 else{
-                    creep.say('☄️');
+                    creep.say('☄️', true);
                 }
             }
             else{
                 creep.moveTo(24, 20);
-                creep.say('할일없다~');
+                creep.say('할일없다~', true);
             }
         }
         else{
             var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.say('⛏️', true);
             }
             else{
-                creep.say('⛏️');
+                creep.say('⛏️', true);
             }
         }
     }

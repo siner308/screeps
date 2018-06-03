@@ -1,22 +1,18 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
- *
- * You can import it from another modules like this:
- * var mod = require('role.harvester');
- * mod.thing == 'a thing'; // true
- */
+var find_structures = require('find.structures');
 
 var role_harvester = {
     run: function(creep){
+        var target = find_structures.containers(creep);
+        
+        
         if(creep.carry.energy < creep.carryCapacity) {
             var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0]);
+            if(creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(target);
             }
             
             else{
-                creep.say('⛏️');
+                creep.say('⛏️', true);
             }
         }
         
@@ -24,7 +20,7 @@ var role_harvester = {
             if(Game.spawns['spawn_first'].energy != Game.spawns['spawn_first'].energyCapacity){    
                 if(creep.transfer(Game.spawns['spawn_first'], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {            
                     creep.moveTo(Game.spawns['spawn_first']);
-                    creep.say('🏠');
+                    creep.say('🏠', true);
                 }
             }
             
@@ -37,13 +33,13 @@ var role_harvester = {
                 }});
                 
                 if(Game.rooms[room_name].energyAvailable == Game.rooms[room_name].energyCapacityAvailable){
-                    creep.say('꽉찼다~');
+                    creep.say('꽉찼다~', true);
                     creep.moveTo(2, 19);
                 }
                 else if(targets.length > 0){
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(targets[0]);
-                        creep.say('🏠');
+                        creep.say('🏠', true);
                     }
                 }
 

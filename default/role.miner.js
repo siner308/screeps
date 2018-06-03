@@ -1,22 +1,17 @@
+var find_structures = require('find.structures');
+
 var role_miner = {
     run: function(creep){
         
         var structures = creep.room.find(FIND_MY_STRUCTURES);
         var i = 0;
         var sources = creep.room.find(FIND_SOURCES);
-        
-        for (var containers in structures){
-            if(structures.structureType == STRUCTURE_CONTAINER){
-                var target = containers[i];    
-            }
-            
-            i++;
-        } 
+        var container = find_structures.containers(creep);
         
         // if not in workplace, moveTo workplace
-        if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){
-            creep.moveTo(sources[0]);
-            creep.say('mv');
+        if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE){
+            creep.moveTo(sources[1]);
+            creep.say('마이너당', true);
         }
         
         // if arrived workplace, let's mining
@@ -26,21 +21,21 @@ var role_miner = {
             if(creep.carry.energy == creep.carryCapacity){
                 
                 // if is not near from container
-                if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.transfer(target, RESOURCE_ENERGY);
-                    creep.say('transfer to container');
+                if(creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.transfer(container, RESOURCE_ENERGY);
+                    creep.say('transfer to container', true);
                 }
                 
                 // go to container
                 else{
-                    creep.moveTo(target);
+                    creep.moveTo(container);
                 }
             }
             
             // if not full, keep mining
             else{
-                creep.harvest(sources[0]);
-                creep.say('harvesting');
+                creep.harvest(sources[1]);
+                creep.say('harvesting', true);
             }
         }
     }

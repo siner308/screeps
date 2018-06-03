@@ -18,7 +18,7 @@ module.exports.loop = function () {
         }
         
         if(creep.memory.role == 'builder'){
-            role_builder.run(creep);
+            role_harvester.run(creep);
         }
         
         if(creep.memory.role == 'repairer'){
@@ -26,14 +26,14 @@ module.exports.loop = function () {
         }
         
         if(creep.memory.role == 'miner'){
-            role_miner.run(creep);
+            role_harvester.run(creep);
         }
         
         // spawn creep
         if(Game.rooms[room_name].energyAvailable >= 400){
-            // for(var room_name in Game.rooms){
-            //     console.log(Game.rooms[room_name].energyAvailable);
-            // }
+            for(var room_name in Game.rooms){
+                console.log(Game.rooms[room_name].energyAvailable);
+            }
             var role = 'harvester';
             
             var role_name = [
@@ -65,7 +65,7 @@ module.exports.loop = function () {
                     10, // upgrader
                     4,  // builder
                     3,  // repairer
-                    5   // miner
+                    1   // miner
                 ]
         
             var get_role_count = [
