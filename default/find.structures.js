@@ -2,7 +2,7 @@ var find_structures = {
     containers: function(creep){
         var container = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: c => (c.structureType == STRUCTURE_CONTAINER) 
-            && (c.store[RESOURCE_ENERGY] != 0)
+            && (c.store[RESOURCE_ENERGY] != 0) 
             
         });
         return container;

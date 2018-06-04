@@ -13,7 +13,10 @@ var role_cleaner2 = require('role.cleaner2');
 // var define_role = require('define.role');
 
 module.exports.loop = function () {
-    
+    for (var r in Game.rooms);
+        // console.log(r.controller.progress);
+    // mycontroller = Game.rooms.find(STRUCTURE_CONTROLLER);
+    // console.log(mycontroller.progress);
     // temporary tower code
     var tower = Game.getObjectById('5b14744c931ce5002cd5e775');
     if(tower) {
@@ -72,9 +75,9 @@ module.exports.loop = function () {
             role_cleaner.run(creep);
         }        
         
-        if(creep.memory.role == 'cleaner2'){
-            // role_cleaner2.run(creep);
-        }
+        // if(creep.memory.role == 'cleaner2'){
+        //     // role_cleaner2.run(creep);
+        // }
     }
     
     // spawn creep
@@ -90,7 +93,7 @@ module.exports.loop = function () {
             'miner1',
             'miner2',
             'cleaner',
-            'cleaner2'
+            // 'cleaner2'
         ]
         
     var role_type = [
@@ -101,29 +104,29 @@ module.exports.loop = function () {
             'c_m_',
             'c_m2_',
             'c_c_',
-            'c_c2_'
+            // 'c_c2_'
         ]
     
     var role_spec = [                
-            [WORK, CARRY, CARRY, MOVE, MOVE, MOVE], // harvester
-            [WORK, WORK, WORK, CARRY, MOVE, CARRY, MOVE], // upgrader
+            [WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], // harvester
+            [WORK, WORK, WORK, CARRY, MOVE, CARRY, MOVE, MOVE, CARRY, MOVE, WORK, CARRY], // upgrader
             [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], // builder
-            [WORK, WORK, CARRY, MOVE, MOVE, MOVE], // repairer
-            [WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner
-            [WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner2
-            [CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], // cleaner
-            [CARRY, MOVE] // cleaner2
+            [WORK, WORK, CARRY, MOVE, CARRY, WORK, MOVE, MOVE], // repairer
+            [WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner
+            [WORK, WORK, WORK, WORK, WORK, WORK, MOVE, MOVE, MOVE], // miner2
+            [CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE] // cleaner
+            // [CARRY, MOVE] // cleaner2
         ];
         
     var role_population_max = [
             2,  // harvester
-            4, // upgrader
+            2, // upgrader
             2,  // builder
             2,  // repairer
-            2,   // miner
+            1,   // miner
             2,   // miner2
             2,   // cleaner
-            1   // cleaner2
+            // 1   // cleaner2
         ]
 
     var get_role_count = [
@@ -133,13 +136,13 @@ module.exports.loop = function () {
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[3]).length,
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[4]).length,
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[5]).length,
-            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[6]).length,
-            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[7]).length
+            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[6]).length
+            // _.filter(Game.creeps, (creep) => creep.memory.role == role_name[7]).length
         ]
     
     // check role count    
     for(var i = 0; i < role_name.length; i++){
-        console.log(role_name[i], get_role_count[i], role_population_max[i]);
+        // console.log(role_name[i], get_role_count[i], role_population_max[i]);
     }
    
     for(var i = 0; i < role_name.length; i++){

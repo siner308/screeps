@@ -50,7 +50,7 @@ var role_upgrader = {
                 // if not empty, upgrade it
                 else{
                     creep.upgradeController(creep.room.controller);
-                    creep.say('⏫', true);
+                    creep.say('⏫' + creep.carry.energy, true);
                 }
             }
             

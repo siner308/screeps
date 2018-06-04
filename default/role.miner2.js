@@ -17,14 +17,22 @@ var role_miner2 = {
         // if arrived workplace, let's mining
         else{
             // if above of container, start mining
-            if(creep.pos == container.pos){
-                creep.harvest(sources[1]);
-                creep.transfer(container, RESOURCE_ENERGY);
-                creep.say('⛏', true);
+            source = Game.getObjectById('68050773313e4cb');
+            console.log(source.energy);
+            // console.log(creep.pos, container.pos);
+            if(source.energy == 0){
+                creep.say(source.ticksToRegeneration, true);
             }
-            // if not above of container, moveTo container
-            else{
-                creep.moveTo(container);
+            else{            
+                if(creep.pos == container.pos){                
+                    creep.harvest(sources[1]);
+                    creep.transfer(container, RESOURCE_ENERGY);
+                    creep.say('⛏', true);
+                }
+                else{
+                    creep.moveTo(container);
+                    creep.say('⛏', true);
+                }
             }
         }
     }
