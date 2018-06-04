@@ -15,7 +15,8 @@ module.exports = {
         }
         
         if (creep.memory.cleaning) {
-            let droppedResource = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES);
+            let droppedResource = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES
+            || FIND_TOMBSTONES);
             console.log(droppedResource);
             if (creep.pickup(droppedResource) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(droppedResource, {visualizePathStyle: {stroke: '#ffaa00'}});

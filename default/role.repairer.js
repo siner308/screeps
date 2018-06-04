@@ -10,11 +10,11 @@ var role_repairer = {
 	    if(creep.carry.energy == 0) {
             if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(container);
-                creep.say('wd', true);
+                // creep.say('energy!!', true);
             }
             else{
                 creep.withdraw(container, RESOURCE_ENERGY);
-                creep.say('wd', true);
+                // creep.say('energy!!', true);
             }
         }
         
@@ -37,7 +37,7 @@ var role_repairer = {
                 }
                 
                 else{
-                    creep.say('살아라벌레같은놈', true);
+                    creep.say('repair!!', true);
                     creep.repair(targets[0]);
                 }
             }

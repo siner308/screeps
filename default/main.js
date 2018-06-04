@@ -15,14 +15,14 @@ var role_cleaner2 = require('role.cleaner2');
 module.exports.loop = function () {
     
     // temporary tower code
-    var tower = Game.getObjectById('dffac25fcf957005e55d5cd2');
+    var tower = Game.getObjectById('5b14744c931ce5002cd5e775');
     if(tower) {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => structure.hits < structure.hitsMax
         });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
+        // if(closestDamagedStructure) {
+        //     tower.repair(closestDamagedStructure);
+        // }
 
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
         if(closestHostile) {

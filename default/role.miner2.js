@@ -32,3 +32,4 @@ var role_miner2 = {
 
 
 module.exports = role_miner2;
+
