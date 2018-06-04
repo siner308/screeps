@@ -1,5 +1,5 @@
 var find_structures = require('find.structures');
-var role_upgrader = require('role.upgrader');
+var role_miner = require('role.upgrader');
 
 var role_harvester = {
     run: function(creep){
@@ -8,6 +8,12 @@ var role_harvester = {
         
         if(creep.carry.energy < creep.carryCapacity) {
             var sources = creep.room.find(FIND_SOURCES);
+            if (!target){
+                role_miner.run(creep);
+            }
+            else{
+                
+            
             if(creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             }
@@ -15,7 +21,7 @@ var role_harvester = {
             else{
                 creep.withdraw(target, RESOURCE_ENERGY);
                 creep.say('⛏️', true);
-            }
+            }}
         }
         
         else {
@@ -35,19 +41,22 @@ var role_harvester = {
                     && structure.energy < structure.energyCapacity;
                 }});
                 
-                if(Game.rooms[room_name].energyAvailable == Game.rooms[room_name].energyCapacityAvailable){
-                    creep.say('꽉찼다~', true);
-                    creep.moveTo(2, 19);
-                    role_upgrader.run(creep);
-                }
-                else if(targets.length > 0){
+                //if(Game.rooms[room_name].energyAvailable == Game.rooms[room_name].energyCapacityAvailable){
+                if(targets.length > 0){
                     if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(targets[0]);
                         creep.say('🏠', true);
                     }
                 }
+                
 
                 
+                else{ creep.say('꽉찼다~', true);
+                creep.moveTo(25, 19);
+                   // role_
+               
+                    
+                }
                 // creep.moveTo(targets[0]);
                 // creep.transfer(targets[0], RESOURCE_ENERGY);
                 

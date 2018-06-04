@@ -37,12 +37,12 @@ var role_repairer = {
                 }
                 
                 else{
-                    creep.say('뿅', true);
+                    creep.say('살아라벌레같은놈', true);
                     creep.repair(targets[0]);
                 }
             }
             else{
-                role_upgrader.run(creep);    
+                creep.say('고칠게없당', true);   
             }
         }
 	}

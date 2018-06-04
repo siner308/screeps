@@ -5,6 +5,12 @@ var role_repairer = require('role.repairer');
 var role_miner = require('role.miner');
 var role_miner2 = require('role.miner2');
 var role_cleaner = require('role.cleaner');
+var role_cleaner2 = require('role.cleaner2');
+// var role_name = require('define.role');
+// var role_spec = require('define.role');
+// var role_type = require('define.role');
+// var role_population_max = require('define.role');
+// var define_role = require('define.role');
 
 module.exports.loop = function () {
     
@@ -24,9 +30,7 @@ module.exports.loop = function () {
         }
     }
     // end of tower code
-    
-    for(var room_name in Game.rooms);
-    
+
     // clear memory
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
@@ -66,6 +70,10 @@ module.exports.loop = function () {
         
         if(creep.memory.role == 'cleaner'){
             role_cleaner.run(creep);
+        }        
+        
+        if(creep.memory.role == 'cleaner2'){
+            // role_cleaner2.run(creep);
         }
     }
     
@@ -74,7 +82,6 @@ module.exports.loop = function () {
     //     for(var room_name in Game.rooms){
     //         console.log(Game.rooms[room_name].energyAvailable);
     //     }
-
     var role_name = [
             'harvester',
             'upgrader',
@@ -82,7 +89,8 @@ module.exports.loop = function () {
             'repairer',
             'miner1',
             'miner2',
-            'cleaner'
+            'cleaner',
+            'cleaner2'
         ]
         
     var role_type = [
@@ -92,27 +100,30 @@ module.exports.loop = function () {
             'c_r_',
             'c_m_',
             'c_m2_',
-            'c_c_'
+            'c_c_',
+            'c_c2_'
         ]
     
     var role_spec = [                
-            [WORK, CARRY, CARRY, MOVE, MOVE], // harvester
-            [WORK, CARRY, CARRY, MOVE, MOVE], // upgrader
-            [WORK, CARRY, CARRY, MOVE, MOVE], // builder
-            [WORK, CARRY, CARRY, MOVE, MOVE], // repairer
-            [WORK, WORK, WORK, WORK, MOVE], // miner
-            [WORK, WORK, WORK, WORK, MOVE], // miner2
-            [CARRY, CARRY, CARRY, MOVE, MOVE], // cleaner
+            [WORK, CARRY, CARRY, MOVE, MOVE, MOVE], // harvester
+            [WORK, WORK, WORK, CARRY, MOVE, CARRY, MOVE], // upgrader
+            [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], // builder
+            [WORK, WORK, CARRY, MOVE, MOVE, MOVE], // repairer
+            [WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner
+            [WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner2
+            [CARRY, CARRY, CARRY, MOVE, MOVE, MOVE], // cleaner
+            [CARRY, MOVE] // cleaner2
         ];
         
-    var role_count_minimum = [
-            1,  // harvester
-            2, // upgrader
+    var role_population_max = [
+            2,  // harvester
+            4, // upgrader
             2,  // builder
             2,  // repairer
-            1,   // miner
-            1,   // miner2
-            2   // cleaner
+            2,   // miner
+            2,   // miner2
+            2,   // cleaner
+            1   // cleaner2
         ]
 
     var get_role_count = [
@@ -122,54 +133,17 @@ module.exports.loop = function () {
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[3]).length,
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[4]).length,
             _.filter(Game.creeps, (creep) => creep.memory.role == role_name[5]).length,
-            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[6]).length
+            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[6]).length,
+            _.filter(Game.creeps, (creep) => creep.memory.role == role_name[7]).length
         ]
     
     // check role count    
-    for(var i = 0; i < 7; i++){
-        console.log(role_name[i], get_role_count[i], role_count_minimum[i]);
+    for(var i = 0; i < role_name.length; i++){
+        console.log(role_name[i], get_role_count[i], role_population_max[i]);
     }
    
-    // make creeps by role count
-    // miner1
-    if(get_role_count[0] < role_count_minimum[0]){
-        Game.spawns['spawn_first'].spawnCreep(role_spec[0], role_type[0] + Game.time, {memory: {role: role_name[0]}});
-    }
-    // miner2
-    else{
-        if(get_role_count[5] < role_count_minimum[5]){
-            Game.spawns['spawn_first'].spawnCreep(role_spec[5], role_type[5] + Game.time, {memory: {role: role_name[5]}});
-        }
-        
-        // harvester
-        else{  
-            if(get_role_count[4] < role_count_minimum[4]){
-                Game.spawns['spawn_first'].spawnCreep(role_spec[4], role_type[4] + Game.time, {memory: {role: role_name[4]}});
-            }
-            
-            else{
-                if(get_role_count[2] < role_count_minimum[2]){
-                    Game.spawns['spawn_first'].spawnCreep(role_spec[2], role_type[2] + Game.time, {memory: {role: role_name[2]}});
-                }
-                
-                else{
-                    if(get_role_count[3] < role_count_minimum[3]){
-                        Game.spawns['spawn_first'].spawnCreep(role_spec[3], role_type[3] + Game.time, {memory: {role: role_name[3]}});
-                    }
-                    else{
-                        if(get_role_count[6] < role_count_minimum[6]){
-                            Game.spawns['spawn_first'].spawnCreep(role_spec[6], role_type[6] + Game.time, {memory: {role: role_name[6], cleaning: true}});
-                        }
-                        
-                        else{
-                            if(get_role_count[1] < role_count_minimum[1]){
-                                Game.spawns['spawn_first'].spawnCreep(role_spec[1], role_type[1] + Game.time, {memory: {role: role_name[1]}});
-                            }
-                        }
-                    }
-                }
-            }  
-        }
-        
+    for(var i = 0; i < role_name.length; i++){
+        if(get_role_count[i] < role_population_max[i])
+        Game.spawns['spawn_first'].spawnCreep(role_spec[i], role_type[i] + Game.time, {memory: {role: role_name[i]}});
     }
 }

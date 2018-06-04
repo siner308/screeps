@@ -32,15 +32,17 @@ module.exports = {
         {                
             for(var room_name in Game.rooms);
                 var targets = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_CONTAINER) 
+                    return (structure.structureType == STRUCTURE_CONTAINER
+                    || structure.structureType == STRUCTURE_SPAWN
+                    || structure.structureType == STRUCTURE_EXTENSION) 
                     && structure.energy < structure.energyCapacity;
                 }});
-            if (creep.transfer(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(container);
+            if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(targets[0]);
                 creep.say('돌려준당', true);
             }
             else{
-                creep.transfer(container, RESOURCE_ENERGY);
+                creep.transfer(targets[0], RESOURCE_ENERGY);
                 creep.say('옮긴당', true);
             }
         }
