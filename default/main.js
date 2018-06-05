@@ -109,7 +109,7 @@ module.exports.loop = function () {
     
     var role_spec = [                
             [WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE], // harvester
-            [WORK, WORK, WORK, CARRY, MOVE, CARRY, MOVE, MOVE, CARRY, MOVE, WORK, CARRY], // upgrader
+            [WORK, WORK, WORK, CARRY, MOVE, CARRY, WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE, CARRY, MOVE, WORK, CARRY], // upgrader
             [WORK, WORK, CARRY, CARRY, MOVE, MOVE, MOVE], // builder
             [WORK, WORK, CARRY, MOVE, CARRY, WORK, MOVE, MOVE], // repairer
             [WORK, WORK, WORK, WORK, WORK, WORK, WORK, MOVE], // miner
@@ -120,7 +120,7 @@ module.exports.loop = function () {
         
     var role_population_max = [
             2,  // harvester
-            2, // upgrader
+            4, // upgrader
             2,  // builder
             2,  // repairer
             1,   // miner
