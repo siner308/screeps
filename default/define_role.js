@@ -14,15 +14,16 @@ module.exports = {
     },
     
     get_role_type: function(){
-        var dict = {
-            harvester: "c_h_",
-            upgrader : "c_u_",
-            builder  : "c_b_",
-            repairer : "c_r_",
-            miner    : "c_m_",
-            miner2   : "c_m2_",
-            cleaner  : "c_c_",    
-        }
+        // var dict = {
+        //     harvester: "c_h_",
+        //     upgrader : "c_u_",
+        //     builder  : "c_b_",
+        //     repairer : "c_r_",
+        //     miner    : "c_m_",
+        //     miner2   : "c_m2_",
+        //     cleaner  : "c_c_",
+        //     storager : "c_s_"
+        // }
         // console.log(dict.harvester);
         return [
             "c_h_",
