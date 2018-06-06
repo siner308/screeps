@@ -1,13 +1,13 @@
 var find_structures = {
     containers: function(creep){
         var container = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-            filter: c => (c.structureType == STRUCTURE_CONTAINER) 
-            && (c.store[RESOURCE_ENERGY] != 0) 
-            
+            filter: c => (c.structureType == STRUCTURE_CONTAINER)
+                && (c.store[RESOURCE_ENERGY] != 0)
+
         });
         return container;
     }
-    
+
     // spawns: function(creep){
     //     var spawn = creep.pos.findClosestByPath(FIND_STRUCTURES, {
     //         filter: s => (s.structureType == STRUCTURE_SPAWN)
@@ -15,7 +15,7 @@ var find_structures = {
     //     });
     //     return spawn;
     // }
-    
+
     // extensions: function(creep){
     //     var extension = creep.pos.findClosestByPath(FIND_STRUCTURES, {
     //         filter: e => (e.structureType == STRUCTURE_EXTENSION)
@@ -23,7 +23,7 @@ var find_structures = {
     //     });
     //     return extension;
     // }
-    
+
     // find_structures: function(creep){
     //     // console.log('123123123');
     //     var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
