@@ -6,6 +6,10 @@ var find_structures = {
 
         });
         return container;
+    },
+    storages: function(creep){
+        var mystorage = creep.room.storage;
+        return mystorage;
     }
 
     // spawns: function(creep){

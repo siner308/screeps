@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7498ec5a-4cae-4ba5-ac43-221e76db227f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/define_role.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/find_structures.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/default/role_upgrader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.sync" beforeDir="false" afterPath="$PROJECT_DIR$/.sync" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/README.md.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/define.role.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/find.structures.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/define_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/define_role.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/find_structures.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/find_structures.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/default/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.cleaner.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_cleaner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.cleaner2.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_cleaner2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.harvester.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_harvester.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.miner.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_miner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.miner2.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_miner2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.repairer.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_repairer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/role.upgrader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/default/structure.tower.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_builder.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_cleaner.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_cleaner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_cleaner2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_harvester.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_harvester.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_miner.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_miner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_miner2.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_miner2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_repairer.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_repairer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/role_upgrader.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/role_upgrader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/default/structure_tower.js" beforeDir="false" afterPath="$PROJECT_DIR$/default/structure_tower.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,57 +29,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="find_structures.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/default/find_structures.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/default/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/default/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+            <state relative-caret-position="456">
+              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="define_role.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="define_role.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/default/define_role.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="874">
+              <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScreepsAutocomplete-master/ScreepsAutocomplete-master/Global/Constants.js">
+      <file leaf-file-name="role_cleaner.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/role_cleaner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="1131" column="18" lean-forward="true" selection-start-line="1131" selection-start-column="18" selection-end-line="1131" selection-end-column="18" />
+            <state relative-caret-position="335">
+              <caret line="70" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="structure_tower.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/structure_tower.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="role_harvester.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/default/role_harvester.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="437">
+              <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="role_storager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/role_storager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="role_repairer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -97,29 +97,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_miner2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/default/role_miner2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role_repairer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role_upgrader.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="role_upgrader.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/default/role_upgrader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+            <state relative-caret-position="383">
+              <caret line="26" column="83" selection-start-line="26" selection-start-column="83" selection-end-line="26" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="role_builder.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/default/role_builder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -139,6 +130,7 @@
       <find>var</find>
       <find>find.structures</find>
       <find>role.upgrader</find>
+      <find>energy</find>
     </findStrings>
     <replaceStrings>
       <replace>get_role_names</replace>
@@ -170,15 +162,16 @@
         <option value="$PROJECT_DIR$/default/find_containers.js" />
         <option value="$PROJECT_DIR$/default/find_storages.js" />
         <option value="$PROJECT_DIR$/default/find_structures.js" />
-        <option value="$PROJECT_DIR$/default/role_builder.js" />
-        <option value="$PROJECT_DIR$/default/role_cleaner.js" />
         <option value="$PROJECT_DIR$/default/role_miner.js" />
         <option value="$PROJECT_DIR$/default/role_miner2.js" />
-        <option value="$PROJECT_DIR$/default/role_repairer.js" />
-        <option value="$PROJECT_DIR$/default/role_upgrader.js" />
-        <option value="$PROJECT_DIR$/default/role_harvester.js" />
-        <option value="$PROJECT_DIR$/default/main.js" />
         <option value="$PROJECT_DIR$/default/define_role.js" />
+        <option value="$PROJECT_DIR$/default/role_harvester.js" />
+        <option value="$PROJECT_DIR$/default/role_repairer.js" />
+        <option value="$PROJECT_DIR$/default/role_builder.js" />
+        <option value="$PROJECT_DIR$/default/role_cleaner2.js" />
+        <option value="$PROJECT_DIR$/default/main.js" />
+        <option value="$PROJECT_DIR$/default/role_cleaner.js" />
+        <option value="$PROJECT_DIR$/default/role_upgrader.js" />
       </list>
     </option>
   </component>
@@ -200,14 +193,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/ScreepsAutocomplete-master/ScreepsAutocomplete-master/package.json" />
-    </packageJsonPaths>
+    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-50" />
-    <option name="y" value="26" />
-    <option name="width" value="1016" />
+    <option name="x" value="1" />
+    <option name="y" value="31" />
+    <option name="width" value="1497" />
     <option name="height" value="999" />
   </component>
   <component name="ProjectView">
@@ -247,7 +238,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.meteor" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -273,17 +264,18 @@
       <updated>1528209887703</updated>
       <workItem from="1528209888812" duration="12251000" />
       <workItem from="1528229055553" duration="4015000" />
+      <workItem from="1528279919914" duration="610000" />
+      <workItem from="1528294640388" duration="9289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16266000" />
+    <option name="totallyTimeSpent" value="26165000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-50" y="26" width="1016" height="999" extended-state="0" />
-    <editor active="true" />
+    <frame x="1" y="31" width="1497" height="999" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15665092" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32911393" />
@@ -297,9 +289,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +301,135 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/default/find_structures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/define_role.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_harvester.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_miner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_miner2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_upgrader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="60" column="86" lean-forward="true" selection-start-line="60" selection-start-column="86" selection-end-line="60" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/find_structures.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScreepsAutocomplete-master/ScreepsAutocomplete-master/Global/Constants.js" />
+    <entry file="file://$PROJECT_DIR$/default/role_harvester.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_miner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_miner2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="29" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_upgrader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1216">
+          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/define_role.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/default/find_structures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -366,16 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/structure.tower.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/default/structure.tower.js" />
     <entry file="file://$PROJECT_DIR$/default/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -403,37 +515,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_cleaner2.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/default/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/find_containers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/default/find_containers.js" />
     <entry file="file://$PROJECT_DIR$/default/find_storages.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_builder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_cleaner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -444,34 +533,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_upgrader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/structure.tower.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/default/structure.tower.js" />
     <entry file="file://$PROJECT_DIR$/default/find_structures.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -488,27 +554,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/default/role_harvester.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ScreepsAutocomplete-master/ScreepsAutocomplete-master/Global/Constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="1131" column="18" lean-forward="true" selection-start-line="1131" selection-start-column="18" selection-end-line="1131" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ScreepsAutocomplete-master/ScreepsAutocomplete-master/Global/Constants.js" />
     <entry file="file://$PROJECT_DIR$/default/role_miner.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
@@ -516,10 +562,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_harvester.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_storager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_cleaner2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/default/define_role.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="874">
+          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/structure_tower.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_cleaner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_repairer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_builder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="52" column="38" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/default/role_upgrader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="26" column="83" selection-start-line="26" selection-start-column="83" selection-end-line="26" selection-end-column="83" />
         </state>
       </provider>
     </entry>

@@ -37,12 +37,12 @@ var role_repairer = {
                 }
 
                 else{
-                    creep.say('repair!!', true);
+                    creep.say('고치즈아!!', true);
                     creep.repair(targets[0]);
                 }
             }
             else{
-                creep.say('고칠게없당', true);
+                creep.say('다고쳐쓰~', true);
             }
         }
     }

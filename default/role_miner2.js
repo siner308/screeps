@@ -18,7 +18,7 @@ var role_miner2 = {
         else{
             // if above of container, start mining
             source = Game.getObjectById('68050773313e4cb');
-            console.log(source.energy);
+            // console.log(source.energy);
             // console.log(creep.pos, container.pos);
             if(source.energy == 0){
                 creep.say(source.ticksToRegeneration, true);
@@ -27,11 +27,11 @@ var role_miner2 = {
                 if(creep.pos == container){
                     creep.harvest(sources[1]);
                     creep.transfer(container, RESOURCE_ENERGY);
-                    creep.say('⛏', true);
+                    // creep.say('⛏', true);
                 }
                 else{
                     creep.moveTo(container);
-                    creep.say('⛏', true);
+                    // creep.say('⛏', true);
                 }
             }
         }

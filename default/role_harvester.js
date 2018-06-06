@@ -4,22 +4,32 @@ var role_miner = require('role_upgrader');
 var role_harvester = {
     run: function(creep){
         var target = find_structures.containers(creep);
+        var mystorage = creep.room.storage;
+        var sources = creep.room.find(FIND_SOURCES);
 
-
-        if(creep.carry.energy < creep.carryCapacity) {
-            var sources = creep.room.find(FIND_SOURCES);
-            if (!target){
-                role_miner.run(creep);
+        // 들고있는 에너지가 없다면, storage가 있는지 확인해라.
+        if(!creep.carry.energy){
+            // storage가 있다면, 위치를 확인해라.
+            if (mystorage.store[RESOURCE_ENERGY]){
+                // storage가 멀리있다면, 거기로 가라.
+                if(creep.withdraw(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(mystorage);
+                }
+                // storage에 도착했다면, withdraw해라.
+                else{
+                    creep.withdraw(mystorage, RESOURCE_ENERGY);
+                    creep.say('좀 쓸게여ㅎ', true);
+                }
             }
             else{
-                if(creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(target);
+                if(creep.harvest(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(sources[0]);
                 }
-
                 else{
-                    creep.withdraw(target, RESOURCE_ENERGY);
-                    creep.say('⛏️', true);
-                }}
+                    creep.harvest(sources[0], RESOURCE_ENERGY);
+                    creep.say('내가캐고말지');
+                }
+            }
         }
 
         else {
