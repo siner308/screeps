@@ -25,9 +25,10 @@ module.exports.loop = function () {
 
     // emergency variables
     var creep_count = _.filter(Game.creeps).length; // 현재 creep 수
-    var emergency_creep_count = total_population; // 목표 creep 수
+    var emergency_creep_count = total_population - 4; // 목표 creep 수
     var energy_for_creep = Game.spawns['spawn_first'].room.energyAvailable; // 현재 creep 생산을 위한 energy 양
     var emergency_energy_for_creep = 1000; // 목표 energy 양
+    console.log('ideal_condition => creep : ' + emergency_creep_count + ', energy : ' + emergency_energy_for_creep);
     console.log('emergency_check => creep : ' + creep_count + ', energy : ' + energy_for_creep);
 
     // work tower
