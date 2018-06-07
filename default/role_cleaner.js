@@ -1,5 +1,5 @@
 var find_structures = require('find_structures');
-
+var define_resources = require('define_resources');
 module.exports = {
     run: function (creep) {
         // 컨테이너의 위치를 찾는다.
@@ -14,9 +14,25 @@ module.exports = {
                 return (((structure.structureType == STRUCTURE_SPAWN
                     || structure.structureType == STRUCTURE_EXTENSION)
                     && (structure.energy < structure.energyCapacity))
+                    
+                    || ((structure.structureType == STRUCTURE_STORAGE)
+                    && (_.sum(structure.store) < structure.storeCapacity))
                     && (structure.hits != 0));
             }
         });
+        var exist_resources = []
+        var i = 0, cnt = 0;
+        // resources
+        var all_resources = define_resources.resources();
+        // exist resources
+        for (i = 0; i < all_resources.length; i++){
+            if(creep.pickup(all_resources[i]) == (OK || ERR_FULL || ERR_BUSY || ERR_NOT_IN_RANGE)){
+                exist_resources[cnt] = all_resources[i];
+                cnt++;
+            }
+        }
+        console.log(all_resources.length);
+        console.log(exist_resources.length);
 
         // 떨어진 에너지가 있는지 확인해서 마이너, 클리너 중 진로를 정한다.
         if(droppedResource){

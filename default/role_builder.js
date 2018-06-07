@@ -2,7 +2,21 @@ var find_structures = require('find_structures');
 
 var role_builder = {
     run: function(creep){
-        var container = find_structures.containers(creep);
+        // var i = 0, cnt = 0;
+        // var construction_sites = [];
+        // var container = find_structures.containers(creep);
+        // for (var room_name in Game.rooms);
+        // // console.log('rooms : ' + room_name.length);
+        // console.log(Game.rooms[room_name]);
+        //     // if(Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES)){
+        // for(j = 0; j < Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES).length; j++){
+        //     construction_sites[cnt] = Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES)[j];
+        //     cnt++;
+        // }
+            // }
+        // }
+        // console.log(construction_sites.length);
+        // var mystorage2 = Game.rooms[room_name].find(FIND_MY_STRUCTURES, {filter : (s) => s.structureType == STRUCTURE_STORAGE});
         var mystorage = creep.room.storage;
         var sources = creep.room.find(FIND_SOURCES);
         // 짓고 싶은데, 에너지가 없다면, 일단 짓지말자.
@@ -10,7 +24,7 @@ var role_builder = {
             creep.memory.building = false;
         }
         // 에너지가 꽉찼다면, 건물을 지어보도록 하자.
-        if(!creep.memory.building && creep.carry.energy != 0){
+        if(!creep.memory.building && creep.carry.energy == creep.carryCapacity){
             creep.memory.building = true;
             creep.say('🚧', true);
         }
@@ -40,12 +54,19 @@ var role_builder = {
         // 에너지가 없다면, 에너지를 withdraw할 장소를 찾아보자.
         else{
             // 에너지를 가져올 장소가 있다면, 멀리있는지 확인해보자.
-            if (mystorage.store[RESOURCE_ENERGY]){
-                if(creep.withdraw(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(mystorage);
+            if(mystorage){
+                if (_.sum(mystorage.store) < mystorage.storeCapacity){
+                    if(creep.withdraw(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                        creep.moveTo(mystorage.pos);
+                        creep.say('가지러가즈아')
+                    }
+                    else{
+                        creep.withdraw(mystorage, RESOURCE_ENERGY);
+                        creep.say('머냥')
+                    }
                 }
                 else{
-                    creep.withdraw(mystorage, RESOURCE_ENERGY);
+                    creep.say('머냥!');
                 }
             }
             else{
@@ -55,6 +76,7 @@ var role_builder = {
                 }
                 else{
                     creep.harvest(sources[0], RESOURCE_ENERGY);
+                    creep.say('내가캐고있다!');
                 }
             }
         }

@@ -9,7 +9,8 @@ module.exports = {
             'miner1',
             'miner2',
             'cleaner',
-            'storager'
+            'storager',
+            'pioneer'
             ]
     },
     
@@ -33,33 +34,36 @@ module.exports = {
             "c_m_",
             "c_m2_",
             "c_c_",
-            "c_s_"
+            "c_s_",
+            "c_p_"
             ];
     },
     get_role_population_max: function(){
         return [
             2,  // harvester
             2, // upgrader
-            2,  // builder
+            3,  // builder
             1,  // repairer
             1,   // miner
             1,   // miner2
             2,   // cleaner
-            1   // storager
+            1,   // storager
+            2    // pioneer
           ]
     },
     
     get_body_spec: function(){
         // MOVE, WORK, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH
         return [
-            [4,4,4,0,0,0,0,0], // harvester
-            [4,4,4,0,0,0,0,0], // upgrader
-            [4,4,4,0,0,0,0,0], // builder
-            [4,4,4,0,0,0,0,0], // repairer
-            [1,6,0,0,0,0,0,0], // miner
-            [1,6,0,0,0,0,0,0], // miner2
-            [4,4,4,0,0,0,0,0],  // cleaner
-            [6,0,6,0,0,0,0,0]   // storager
+            [7,0,7,0,0,0,0,0], // harvester
+            [5,5,5,0,0,0,0,0], // upgrader
+            [5,5,5,0,0,0,0,0], // builder
+            [5,5,5,0,0,0,0,0], // repairer
+            [3,10,0,0,0,0,0,0], // miner
+            [3,10,0,0,0,0,0,0], // miner2
+            [7,0,7,0,0,0,0,0],  // cleaner
+            [7,0,7,0,0,0,0,0],   // storager
+            [4,4,4,0,0,0,0,0]   // pioneer
             ]
     },
     
@@ -77,7 +81,7 @@ module.exports = {
         }
         var retList = [total_body];
         
-        for (i = 0; i < 7; i++){
+        for (i = 0; i < this.get_role_name().length; i++){
             for(j = 0; j < num_body[i]; j++){
                 retList[cnt] = BODYPARTS_ALL[i];
                 cnt++;

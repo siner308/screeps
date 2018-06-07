@@ -8,11 +8,14 @@ var role_miner = require('role_miner');
 var role_miner2 = require('role_miner2');
 var role_cleaner = require('role_cleaner');
 var role_storager = require('role_storager');
+var role_pioneer = require('role_pioneer');
 
 var structure_tower = require('structure_tower');
 
 
 module.exports.loop = function () {
+    
+    
     var i = 0;
     var total_population = 0;
     for(i = 0; i < define_role.get_role_population_max().length; i++){
@@ -73,6 +76,10 @@ module.exports.loop = function () {
             if(!(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep)){
                 role_storager.run(creep);
             }
+        }
+        
+        if(creep.memory.role == 'pioneer'){
+            role_pioneer.run(creep);
         }
     }
     

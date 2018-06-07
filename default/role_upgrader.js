@@ -10,7 +10,6 @@ var role_upgrader = {
         // controller가 멀리 있다면, 에너지 상태를 확인하고, withdraw하거나 controller로 이동한다.
         if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE){
             // 들고있는 에너지가 없다면, container의 위치를 확인한다.
-            // 들고있는 에너지가 없다면, container의 위치를 확인한다.
             if(creep.carry.energy != creep.carryCapacity){
                 // 에너지를 가져올 장소가 있다면, 멀리있는지 확인해보자.
                 if (mystorage.store[RESOURCE_ENERGY]){
