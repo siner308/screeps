@@ -1,4 +1,5 @@
 var find_structures = require('find_structures');
+var role_harvester = require('role_harvester');
 
 var role_builder = {
     run: function(creep){
@@ -48,7 +49,8 @@ var role_builder = {
             // 지을 건물이 없다면, 휴식지로 가서 쉬자.
             else{
                 creep.moveTo(24, 20);
-                creep.say('할일없다~', true);
+                creep.say('할일없다~', true); 
+                role_harvester.run(creep);  
             }
         }
         // 에너지가 없다면, 에너지를 withdraw할 장소를 찾아보자.

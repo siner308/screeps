@@ -88,7 +88,16 @@ module.exports.loop = function () {
         }
     }
     
-
+    // get link objects
+    const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
+    const linkTo = Game.rooms['W5N8'].lookForAt('structure', 37, 31)[0];
+    // link energy from to
+    linkFrom.transferEnergy(linkTo);
+    
+    // for (var room_name in Game.rooms);
+    // links = Game.rooms[room_name].find(FIND_STRUCTURES, {filter: (link) => link.structureType == STRUCTURE_LINK});
+    // console.log(links[0]);
+    // console.log(links[0].transferEnergy(links[1]));
 
     // spawn creeps
     for(var i = 0; i < define_role.get_role_name().length; i++){

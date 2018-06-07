@@ -16,7 +16,7 @@ var role_storager = {
                     }
                 }
                 else{
-                    creep.say('!storage');
+                    creep.say('!storage', true);
                 }
             }
             else{

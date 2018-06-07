@@ -3,6 +3,9 @@ var role_pioneer = {
         // console.log(Game.flags['Flag1'].pos);
         var flag = Game.flags['Flag1'].pos;
         var spawn = Game.spawns['spawn_first'];
+        const mystorage = Game.rooms['W5N8'].lookForAt('structure', 22, 22)[0];
+        // console.log('mystorage'+mystorage);
+        
         var sources = creep.room.find(FIND_SOURCES);
         // console.log(creep.moveTo(source));
         // creep.harvest(sources[0], RESOURCE_ENERGY);
@@ -17,12 +20,12 @@ var role_pioneer = {
             }
             // 에너지가 꽉찼다면
             else{
-                if(creep.transfer(spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(spawn.pos);
+                if(creep.transfer(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    creep.moveTo(mystorage.pos);
                     creep.say('외화벌어왔당', true);
                 }
                 else{
-                    creep.transfer(spawn, RESOURCE_ENERGY);
+                    creep.transfer(mystorage, RESOURCE_ENERGY);
                     creep.say('외화벌어왔당!', true);
                 }
 
@@ -36,7 +39,7 @@ var role_pioneer = {
             }
             // 에너지가 꽉찼다면
             else{
-                creep.moveTo(spawn.pos);
+                creep.moveTo(mystorage.pos);
                 creep.say('외화벌어왔당', true);
             }
         }
