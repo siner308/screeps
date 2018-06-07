@@ -2,6 +2,7 @@ var find_structures = require('find_structures');
 var define_resources = require('define_resources');
 module.exports = {
     run: function (creep) {
+
         // 컨테이너의 위치를 찾는다.
         var container = find_structures.containers(creep);
         // 채굴 가능한 에너지원의 위치를 찾는다.

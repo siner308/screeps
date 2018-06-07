@@ -41,14 +41,14 @@ module.exports = {
     get_role_population_max: function(){
         return [
             2,  // harvester
-            2, // upgrader
-            3,  // builder
-            1,  // repairer
+            6, // upgrader
+            4,  // builder
+            2,  // repairer
             1,   // miner
             1,   // miner2
-            2,   // cleaner
+            1,   // cleaner
             1,   // storager
-            2    // pioneer
+            1    // pioneer
           ]
     },
     
@@ -56,7 +56,7 @@ module.exports = {
         // MOVE, WORK, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH
         return [
             [7,0,7,0,0,0,0,0], // harvester
-            [5,5,5,0,0,0,0,0], // upgrader
+            [6,6,6,0,0,0,0,0], // upgrader
             [5,5,5,0,0,0,0,0], // builder
             [5,5,5,0,0,0,0,0], // repairer
             [3,10,0,0,0,0,0,0], // miner

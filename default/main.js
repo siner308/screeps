@@ -14,18 +14,20 @@ var structure_tower = require('structure_tower');
 
 
 module.exports.loop = function () {
-    
-    
+    // 루프문을 위한 변수
     var i = 0;
-    var total_population = 0;
+
+    // 개체수가 적어졌을때를 대비해서 목표 creep 수를 항상 가지고 있자.
+    var total_population = 0; // 목표 전체 creep수
     for(i = 0; i < define_role.get_role_population_max().length; i++){
         total_population += define_role.get_role_population_max()[i];
     }
-    // for emergency
-    var creep_count = _.filter(Game.creeps).length;
-    var emergency_creep_count = total_population;
-    var energy_for_creep = Game.spawns['spawn_first'].room.energyAvailable;
-    var emergency_energy_for_creep = 1000;
+
+    // emergency variables
+    var creep_count = _.filter(Game.creeps).length; // 현재 creep 수
+    var emergency_creep_count = total_population; // 목표 creep 수
+    var energy_for_creep = Game.spawns['spawn_first'].room.energyAvailable; // 현재 creep 생산을 위한 energy 양
+    var emergency_energy_for_creep = 1000; // 목표 energy 양
     console.log('emergency_check => creep : ' + creep_count + ', energy : ' + energy_for_creep);
 
     // work tower
@@ -43,6 +45,9 @@ module.exports.loop = function () {
     // let work to creeps
     for(var name in Game.creeps){
         var creep = Game.creeps[name];
+        if(creep.ticksToLive < 101){
+            creep.say('내목숨을아이어에' + creep.ticksToLive, true);
+        }
 
         if(creep.memory.role == 'harvester'){
             role_harvester.run(creep);

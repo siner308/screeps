@@ -58,15 +58,15 @@ var role_builder = {
                 if (_.sum(mystorage.store) < mystorage.storeCapacity){
                     if(creep.withdraw(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(mystorage.pos);
-                        creep.say('가지러가즈아')
+                        creep.say('가지러가즈아', true)
                     }
                     else{
                         creep.withdraw(mystorage, RESOURCE_ENERGY);
-                        creep.say('머냥')
+                        creep.say('머냥', true)
                     }
                 }
                 else{
-                    creep.say('머냥!');
+                    creep.say('머냥!', true);
                 }
             }
             else{
@@ -76,7 +76,7 @@ var role_builder = {
                 }
                 else{
                     creep.harvest(sources[0], RESOURCE_ENERGY);
-                    creep.say('내가캐고있다!');
+                    creep.say('내가캐고있다!', true);
                 }
             }
         }
