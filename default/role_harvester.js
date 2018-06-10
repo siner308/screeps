@@ -8,8 +8,7 @@ var role_harvester = {
         var sources = creep.room.find(FIND_SOURCES);
         const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
         // console.log(linkFrom);
-        
-        console.log('test : ' + creep.carry.RESOURCE_KEANIUM);
+        console.log('test : ' + mycontainer.store.K);
 
         // 에너지를 꽉 채워서 들고있지 않다면,
         if(_.sum(creep.carry) == 0){
@@ -53,16 +52,26 @@ var role_harvester = {
         }
         // 에너지를 꽉채워서 들고있다면,
         else {
-            if(creep.carry.K != 0){
-                if(creep.transfer(mystorage, RESOURCE_KEANIUM) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(mystorage);
-                    creep.say('m to s', true);
-                }
-                else{
-                    creep.transfer(mystorage, RESOURCE_KEANIUM);
-                }
+            for(const resourceType in creep.carry){
+                // if(resourceType != RESOURCE_ENERGY){
+                    if(creep.transfer(mystorage, resourceType) == ERR_NOT_IN_RANGE){
+                        creep.moveTo(mystorage);
+                    }
+                    else{
+                        creep.transfer(mystorage, resourceType);
+                    }
+                // }
             }
-            else{
+            // if(creep.carry.RESOURCE_KEANIUM != 0){
+            //     if(creep.transfer(mystorage, RESOURCE_KEANIUM) == ERR_NOT_IN_RANGE){
+            //         creep.moveTo(mystorage);
+            //         creep.say('m to s', true);
+            //     }
+            //     else{
+            //         creep.transfer(mystorage, RESOURCE_KEANIUM);
+            //     }
+            // }
+            // else{
                 // spawn의 에너지가 꽉 차지 않았다면,
                 if(Game.spawns['spawn_first'].energy != Game.spawns['spawn_first'].energyCapacity){
                     // spawn에서 멀리 떨어져있다면, 거기로 가라
@@ -79,8 +88,8 @@ var role_harvester = {
                 else{
                     // tower, extension, link, storage 리스트를 만들어라.
                     var targets = creep.room.find(FIND_STRUCTURES, {filter: (structure) => {
-                            return ((structure.structureType == STRUCTURE_EXTENSION
-                                || linkFrom)
+                            return (((structure.structureType == STRUCTURE_EXTENSION)
+                                || (linkFrom))
                                 && structure.energy < structure.energyCapacity)
                                 
                                 || (structure.structureType == STRUCTURE_STORAGE
@@ -97,14 +106,14 @@ var role_harvester = {
                             creep.transfer(linkFrom, RESOURCE_ENERGY);
                         }
                     }else{
-                        if(real_target){
+                        if(targets){
                             // 타겟에서 멀리 떨어져있다면, 거기로 가라.
-                            if(creep.transfer(real_target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                                creep.moveTo(real_target);
-                                creep.say('🏠', true);
+                            if(creep.transfer(targets, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                                creep.moveTo(targets);
+                                creep.say('🏠?', true);
                             }
                             else{
-                                creep.transfer(real_target, RESOURCE_ENERGY);
+                                creep.transfer(targets, RESOURCE_ENERGY);
                             }
                         }
                         // 타겟이 없다면. (structure도 꽉찼다면. 쉬자.)
@@ -114,7 +123,7 @@ var role_harvester = {
                     }
                 }
                 
-            }
+            // }
         }
     }
 };

@@ -6,7 +6,7 @@ var role_miner2 = {
         var structures = creep.room.find(FIND_MY_STRUCTURES);
         var i = 0;
         var sources = creep.room.find(FIND_SOURCES);
-        var container = find_structures.containers(creep);
+        var container = find_structures.containers_for_miner(creep);
 
         // if not in workplace, moveTo workplace
         if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE){

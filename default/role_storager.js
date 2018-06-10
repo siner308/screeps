@@ -18,9 +18,11 @@ var role_storager = {
             else{
                 if(creep.transfer(linkFrom, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                     creep.moveTo(linkFrom);
+                    creep.say('to link', true);
                 }
                 else{
                     creep.transfer(linkFrom, RESOURCE_ENERGY);
+                    creep.say('to link', true);
                 }
             }
         }

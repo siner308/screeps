@@ -2,11 +2,25 @@ var find_structures = {
     containers: function(creep){
         var container = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: c => (c.structureType == STRUCTURE_CONTAINER)
-                && (c.store[RESOURCE_ENERGY] != 0)
+                && (_.sum(c.store) != 0)
 
         });
         return container;
     },
+    
+    containers_for_miner: function(creep){
+        var container = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: c => (c.structureType == STRUCTURE_CONTAINER)
+                && (_.sum(c.store) != c.storeCapacity)
+
+        });
+        return container;
+    },
+    
+    
+    
+    
+    
     storages: function(creep){
         var mystorage = creep.room.storage;
         return mystorage;

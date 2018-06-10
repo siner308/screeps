@@ -82,9 +82,7 @@ module.exports.loop = function () {
         }
         
         if(creep.memory.role == 'storager'){
-            if(!(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep)){
-                role_storager.run(creep);
-            }
+            role_storager.run(creep);
         }
         
         if(creep.memory.role == 'pioneer'){
@@ -115,7 +113,7 @@ module.exports.loop = function () {
             // 3마리 이하인데 현재 에너지가 별로 없다면.
             // console.log(creep_count + ' ' + energy_for_creep);
             if(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep){
-                Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,1,1,0,0,0,0,0]), 'default' + define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,1,1,0,0,0,0,0]), 'default_' + define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
                 console.log(define_role.get_role_name()[i] + ' is spawned');
             }
             else{
