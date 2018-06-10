@@ -12,7 +12,7 @@ var role_storager = {
                     creep.moveTo(mystorage);
                 }
                 else{
-                    creep.withdraw(mystorage, RESOURCE_ENERGY);
+                    console.log('storager / err1');
                 }
             }
             else{
@@ -21,8 +21,7 @@ var role_storager = {
                     creep.say('to link', true);
                 }
                 else{
-                    creep.transfer(linkFrom, RESOURCE_ENERGY);
-                    creep.say('to link', true);
+                    console.log('storager / err2');
                 }
             }
         }
@@ -32,11 +31,10 @@ var role_storager = {
                     if(mystorage){
                         if(creep.transfer(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                             creep.moveTo(mystorage);
-                        creep.say('!aaaaaaa', true);
+                            creep.say('!aaaaaaa', true);
                         }
                         else{
-                            creep.transfer(mystorage, RESOURCE_ENERGY);
-                            creep.say('!sdgsdgsdfhfh', true);
+                            console.log('storager / err3');
                         }
                     }
                     else{
@@ -49,8 +47,7 @@ var role_storager = {
                         creep.say('!test', true);
                     }
                     else{
-                        creep.withdraw(mycontainer, RESOURCE_ENERGY);
-                        creep.say('!asdas', true);
+                        console.log('storager / err4');
                     }
                 }
             }
