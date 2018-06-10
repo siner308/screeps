@@ -9,6 +9,7 @@ var role_miner2 = require('role_miner2');
 var role_cleaner = require('role_cleaner');
 var role_storager = require('role_storager');
 var role_pioneer = require('role_pioneer');
+var role_mineral_harvester = require('role_mineral_harvester');
 
 var structure_tower = require('structure_tower');
 
@@ -25,11 +26,13 @@ module.exports.loop = function () {
 
     // emergency variables
     var creep_count = _.filter(Game.creeps).length; // 현재 creep 수
-    var emergency_creep_count = total_population - 3; // 목표 creep 수
+    var emergency_creep_count = total_population - 1; // 목표 creep 수
     var energy_for_creep = Game.spawns['spawn_first'].room.energyAvailable; // 현재 creep 생산을 위한 energy 양
     var emergency_energy_for_creep = 1000; // 목표 energy 양
-    console.log('ideal_condition => creep : ' + emergency_creep_count + ', energy : ' + emergency_energy_for_creep);
-    console.log('emergency_check => creep : ' + creep_count + ', energy : ' + energy_for_creep);
+    console.log('-------------------------------------------------');
+    console.log('emergency => creep : ' + emergency_creep_count + ', energy : ' + emergency_energy_for_creep);
+    console.log('current   => creep : ' + creep_count + ', energy : ' + energy_for_creep);
+    console.log('-------------------------------------------------');
 
     // work tower
     structure_tower.run('5b14744c931ce5002cd5e775');
@@ -87,6 +90,10 @@ module.exports.loop = function () {
         if(creep.memory.role == 'pioneer'){
             role_pioneer.run(creep);
         }
+        
+        if(creep.memory.role == 'mineral_harvester'){
+            role_mineral_harvester.run(creep);
+        }
     }
     
     // get link objects
@@ -108,10 +115,12 @@ module.exports.loop = function () {
             // 3마리 이하인데 현재 에너지가 별로 없다면.
             // console.log(creep_count + ' ' + energy_for_creep);
             if(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep){
-                Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,1,1,0,0,0,0,0]), define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,1,1,0,0,0,0,0]), 'default' + define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                console.log(define_role.get_role_name()[i] + ' is spawned');
             }
             else{
                 Game.spawns['spawn_first'].spawnCreep(type_body, define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                console.log(define_role.get_role_name()[i] + ' is spawned');
             }
         }
     }

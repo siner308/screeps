@@ -25,7 +25,7 @@ var role_miner2 = {
             }
             else{
                 if(creep.pos == container){
-                    creep.harvest(sources[1]);
+                    creep.harvest(sources[0]);
                     creep.transfer(container, RESOURCE_ENERGY);
                     creep.say('⛏!', true);
                 }

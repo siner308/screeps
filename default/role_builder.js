@@ -20,6 +20,8 @@ var role_builder = {
         // var mystorage2 = Game.rooms[room_name].find(FIND_MY_STRUCTURES, {filter : (s) => s.structureType == STRUCTURE_STORAGE});
         var mystorage = creep.room.storage;
         var sources = creep.room.find(FIND_SOURCES);
+        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+        
         // 짓고 싶은데, 에너지가 없다면, 일단 짓지말자.
         if(creep.memory.building && creep.carry.energy == 0){
             creep.memory.building = false;
@@ -32,7 +34,6 @@ var role_builder = {
 
         // 건물을 지을거라면, 지을것이 있는지 찾아보자.
         if(creep.memory.building){
-            var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
             // 지을 건물이 있다면, 건설지가 어디에 있는지 찾아보자.
             if(targets.length){
                 // 건설지가 멀리 있다면, 거기로 가자.

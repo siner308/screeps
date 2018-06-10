@@ -10,7 +10,8 @@ module.exports = {
             'miner2',
             'cleaner',
             'storager',
-            'pioneer'
+            'pioneer',
+            'mineral_harvester'
             ]
     },
     
@@ -35,35 +36,38 @@ module.exports = {
             "c_m2_",
             "c_c_",
             "c_s_",
-            "c_p_"
-            ];
+            "c_p_",
+            "c_m_h_"
+            ]
     },
     get_role_population_max: function(){
         return [
             2,  // harvester
-            3, // upgrader
-            0,  // builder
+            2, // upgrader
+            1,  // builder
             1,  // repairer
             1,   // miner
             1,   // miner2
-            1,   // cleaner
+            2,   // cleaner
             1,   // storager
-            2    // pioneer
+            2,    // pioneer
+            1   // mineral harvester
           ]
     },
     
     get_body_spec: function(){
         // MOVE, WORK, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH
         return [
-            [6,0,6,0,0,0,0,0], // harvester
-            [4,6,4,0,0,0,0,0], // upgrader
-            [5,5,5,0,0,0,0,0], // builder
-            [5,5,5,0,0,0,0,0], // repairer
-            [1,7,0,0,0,0,0,0], // miner
-            [1,7,0,0,0,0,0,0], // miner2
-            [6,0,6,0,0,0,0,0],  // cleaner
-            [6,0,8,0,0,0,0,0],   // storager
-            [6,3,3,0,0,0,0,0]   // pioneer
+            [5,5,7,0,0,0,0,0], // harvester
+            [5,5,3,0,0,0,0,0], // upgrader
+            [5,5,3,0,0,0,0,0], // builder
+            [5,5,3,0,0,0,0,0], // repairer
+            [1,5,0,0,0,0,0,0], // miner
+            [1,5,0,0,0,0,0,0], // miner2
+            [5,5,5,0,0,0,0,0],  // cleaner
+            [5,0,3,0,0,0,0,0],   // storager
+            [6,3,3,0,0,0,0,0],   // pioneer
+            [5,5,3,0,0,0,0,0]   // mineral_harvester
             ]
     },
     
