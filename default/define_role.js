@@ -42,13 +42,13 @@ module.exports = {
     },
     get_role_population_max: function(){
         return [
-            2,  // harvester
+            3,  // harvester
             2, // upgrader
             1,  // builder
             1,  // repairer
             1,   // miner
             1,   // miner2
-            2,   // cleaner
+            1,   // cleaner
             1,   // storager
             2,    // pioneer
             1   // mineral harvester

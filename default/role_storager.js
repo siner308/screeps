@@ -2,7 +2,7 @@ var find_structures = require('find_structures');
 
 var role_storager = {
     run: function(creep){
-        var container = find_structures.containers(creep);
+        var mycontainer = find_structures.containers(creep);
         var mystorage = creep.room.storage;
         const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
         
@@ -27,14 +27,16 @@ var role_storager = {
             }
         }
         else{
-            if(container){
-                if(creep.carry.energy){
+            if(mycontainer){
+                if(_.sum(creep.carry) == creep.carryCapacity){
                     if(mystorage){
                         if(creep.transfer(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                             creep.moveTo(mystorage);
+                        creep.say('!aaaaaaa', true);
                         }
                         else{
                             creep.transfer(mystorage, RESOURCE_ENERGY);
+                            creep.say('!sdgsdgsdfhfh', true);
                         }
                     }
                     else{
@@ -42,11 +44,13 @@ var role_storager = {
                     }
                 }
                 else{
-                    if(creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                        creep.moveTo(container);
+                    if(creep.withdraw(mycontainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                        creep.moveTo(mycontainer);
+                        creep.say('!test', true);
                     }
                     else{
-                        creep.withdraw(container, RESOURCE_ENERGY);
+                        creep.withdraw(mycontainer, RESOURCE_ENERGY);
+                        creep.say('!asdas', true);
                     }
                 }
             }

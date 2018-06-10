@@ -73,14 +73,15 @@ var role_builder = {
                 }
             }
             else{
-                if(creep.harvest(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                    creep.moveTo(sources[0]);
-                    creep.say('내가캐고말지!', true);
-                }
-                else{
-                    creep.harvest(sources[0], RESOURCE_ENERGY);
-                    creep.say('내가캐고있다!', true);
-                }
+                role_harvester.run(creep);
+                // if(creep.harvest(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                //     creep.moveTo(sources[0]);
+                //     creep.say('내가캐고말지!', true);
+                // }
+                // else{
+                //     creep.harvest(sources[0], RESOURCE_ENERGY);
+                //     creep.say('내가캐고있다!', true);
+                // }
             }
         }
     }

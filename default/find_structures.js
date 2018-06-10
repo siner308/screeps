@@ -1,8 +1,25 @@
 var find_structures = {
     containers: function(creep){
-        var container = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+        var containers = creep.room.find(FIND_STRUCTURES, {
             filter: c => (c.structureType == STRUCTURE_CONTAINER)
                 && (_.sum(c.store) != 0)
+        });
+        
+        // var retVal = containers[0];
+        
+        // for(var container in containers){
+        //     if(_.sum(container.store) > _.sum(retVal.store)){
+        //         retVal = container;
+        //     }
+        // }
+        // console.log(retVal);
+        return containers;
+    },    
+    
+    containers_full: function(creep){
+        var container = creep.room.find(FIND_STRUCTURES, {
+            filter: c => (c.structureType == STRUCTURE_CONTAINER)
+                && (_.sum(c.store) == c.storeCapacity)
 
         });
         return container;
@@ -17,14 +34,30 @@ var find_structures = {
         return container;
     },
     
+    extensions: function(creep){
+        var extension = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: c => (c.structureType == STRUCTURE_EXTENSION)
+                && (_.sum(c.energy) != c.energyCapacity)
+
+        });
+        return extension;
+    },
     
-    
-    
-    
-    storages: function(creep){
-        var mystorage = creep.room.storage;
-        return mystorage;
+    towers: function(creep){
+        var tower = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: c => (c.structureType == STRUCTURE_TOWER)
+                && (_.sum(c.energy) != c.energyCapacity)
+
+        });
+        return tower;
     }
+    
+    
+    
+    // storages: function(creep){
+    //     var mystorage = creep.room.storage;
+    //     return mystorage;
+    // }
 
     // spawns: function(creep){
     //     var spawn = creep.pos.findClosestByPath(FIND_STRUCTURES, {
