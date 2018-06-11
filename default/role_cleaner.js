@@ -33,6 +33,10 @@ module.exports = {
                 cnt++;
             }
         }
+        
+        var resourceType = []
+        for (resourceType in creep.carry);
+        
         // console.log(all_resources.length);
         // console.log(exist_resources.length);
 
@@ -47,35 +51,24 @@ module.exports = {
                 }
                 // 떨어진 리소스 위치에 도착했다면, 줍는다.
                 else {
-                    creep.pickup(droppedResource);
+                    console.log('cleaner / 1');
                 }
             }
             // 에너지를 들고있다면, 전달할 장소가 멀리있는지 확인한다.
             else {
                 if(real_target){
                 // 타겟이 멀리 있다면, 거기로 간다.
-                    if (creep.transfer(real_target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    if (creep.transfer(real_target, resourceType) == ERR_NOT_IN_RANGE){
                         creep.moveTo(real_target, {visualizePathStyle: {stroke: '#ffffff'}});
                         creep.say('에너지준당', true);
                     }
                     // 타겟에 도착했다면, 전달한다.
                     else {
-                        if(real_target.structureType == STRUCTURE_STORAGE){
-                            if(creep.carry.RESOURCE_KEANIUM){
-                                creep.transfer(real_target, RESOURCE_KEANIUM);
-                            }
-                        }
-                        creep.transfer(real_target, RESOURCE_ENERGY);
-                        creep.say('에너지준당', true);
+                        console.log('cleaner / 2');
                     }
                 }
                 else{
-                    // if(creep.room.storage){
-                    //     if(_.sum(creep.room.storage.store) < storage.storeCapacity){
-                    //         if(creep.transfer())
-                    //     }
-                    // }
-                    creep.say('no target', true);
+                    console.log('cleaner / 3');
                 }
             }
         }
@@ -84,38 +77,39 @@ module.exports = {
             // 에너지를 꽉 채워서 들고있지 않다면, 에너지의 위치를 확인하자.
             if(_.sum(creep.carry) != creep.carryCapacity){
                 if(sources){                
-                    // console.log(creep.harvest(sources[0], RESOURCE_ENERGY));
-                    // 에너지가 멀리 있다면, 거기로 가자.
                     if(creep.harvest(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(sources[0]);
                         creep.say('내가캐고말지!', true);
                     }
                     // 에너지에 도착했다면, 채굴을 시작하자.
                     else{
-                        creep.harvest(sources[0], RESOURCE_ENERGY);
-                        creep.say('내가캐고말지!', true);
+                        console.log('cleaner / 4');
                     }
                 }
                 else{
-                    creep.say('no sources', true);    
+                    console.log('cleaner / 5');   
                 }
             }
             // 에너지를 꽉 채워서 들고있다면, 전달할 위치를 확인하자.
             else{
                 // 전달할 곳이 멀다면, 거기로 가자.
-                if(creep.transfer(real_target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                if(creep.transfer(real_target, resourceType) == ERR_NOT_IN_RANGE){
                     creep.moveTo(real_target);
                     creep.say('내가캤다!', true);
                 }
                 // 전달할 곳에 도착했다면, 전달하자.
                 else{
                     if(real_target.structureType == STRUCTURE_STORAGE){
-                        if(creep.carry.RESOURCE_KEANIUM){
-                            creep.transfer(real_target, RESOURCE_KEANIUM);
+                        if(creep.carry.resourceType){
+                            creep.transfer(real_target, resourceType);
+                        }
+                        else{
+                            console.log('cleaner / 6');
                         }
                     }
-                    creep.transfer(real_target, RESOURCE_ENERGY);
-                    creep.say('내가캤다!', true);
+                    else{
+                        console.log('cleaner / 7');
+                    }
                 }
             }
         }

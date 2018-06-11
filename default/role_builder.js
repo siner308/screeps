@@ -49,8 +49,6 @@ var role_builder = {
             }
             // 지을 건물이 없다면, 휴식지로 가서 쉬자.
             else{
-                creep.moveTo(24, 20);
-                creep.say('할일없다~', true); 
                 role_harvester.run(creep);  
             }
         }

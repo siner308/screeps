@@ -9,30 +9,41 @@ var role_harvester = {
         var sources = creep.room.find(FIND_SOURCES);
         var extensions = find_structures.extensions(creep);
         const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
-        
+        var resourceType = [];
+        for(resourceType in creep.carry);
+        var containerResources = [];
+        if(mycontainer){
+            for(containerResources in mycontainer.store);
+            // console.log('test : ' + containerResources);
+        }
+        var containerFullResources = [];
+        if(container_full){
+            for(containerFullResources in container_full.store);
+            // console.log('test : ' + containerFullResources);
+        }
         
         if(_.sum(creep.carry) != creep.carryCapacity){
             if(container_full){
-                if(creep.withdraw(container_full, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                if(creep.withdraw(container_full, containerFullResources) == ERR_NOT_IN_RANGE){
                     creep.moveTo(container_full, {visualizePathStyle: {stroke: '#ffaa00'}});
                 }
                 else{
-                    console.log(creep.withdraw(container_full, RESOURCE_ENERGY))
+                    console.log(creep.withdraw(container_full, containerFullResources))
                     // console.log(container_full[0]);
                     // console.log(JSON.stringify(container_full[0], null, 2));
-                    creep.say('err1', true);
+                    creep.say('harvester / 1', true);
                     // creep.withdraw(container_full, RESOURCE_ENERGY);
                 }
             }
             else{
                 // container가 있는가.
                 if (mycontainer){
-                    if(creep.withdraw(mycontainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    if(creep.withdraw(mycontainer, containerResources) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(mycontainer, {visualizePathStyle: {stroke: '#ffaa00'}});
                     }
                     // container에 도착했다면, withdraw해라.
                     else{
-                        console.log('err2');
+                        console.log('harvester / 2');
                     }
                 }
                 // container가 없다면, 직접 캐러가자.
@@ -45,7 +56,7 @@ var role_harvester = {
                     }
                     // 에너지에 도착했다면, 캐라.
                     else{
-                        console.log('err3');
+                        console.log('harvester / 3');
                     }
                 }
             }
@@ -60,7 +71,7 @@ var role_harvester = {
                         creep.say('🏠', true);
                     }
                     else{
-                        console.log('err4');
+                        console.log('harvester / 4');
                     }
                 }
                 else{
@@ -71,7 +82,7 @@ var role_harvester = {
                         }
                         else{
                             // console.log(creep.transfer(extensions, RESOURCE_ENERGY));
-                            console.log('err5');
+                            console.log('harvester / 5');
                         }
                     }
                     else{
@@ -81,7 +92,7 @@ var role_harvester = {
                                 creep.moveTo(linkFrom, {visualizePathStyle: {stroke: '#ffaa00'}});
                             }
                             else{
-                                console.log('err6');
+                                console.log('harvester / 6');
                             }
                         }
                         else{
@@ -93,18 +104,16 @@ var role_harvester = {
                                     creep.moveTo(tower, {visualizePathStyle: {stroke: '#ffaa00'}});
                                 }
                                 else{
-                                    console.log('err7')
+                                    console.log('harvester / 7')
                                 }
                             }
                             else{
-                                var resourceType = []
-                                for(resourceType in creep.carry);
                                 if(creep.transfer(mystorage, resourceType) == ERR_NOT_IN_RANGE){
                                     creep.moveTo(mystorage, {visualizePathStyle: {stroke: '#ffaa00'}});
                                     creep.say('success!!', true);
                                 }
                                 else{
-                                    console.log('err8')
+                                    console.log('harvester / 8')
                                 }
                             }
                         }

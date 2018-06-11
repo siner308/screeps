@@ -59,7 +59,7 @@ module.exports = {
         // MOVE, WORK, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH
         return [
             [5,5,7,0,0,0,0,0], // harvester
-            [5,5,3,0,0,0,0,0], // upgrader
+            [5,6,3,0,0,0,0,0], // upgrader
             [5,5,3,0,0,0,0,0], // builder
             [5,5,3,0,0,0,0,0], // repairer
             [1,5,0,0,0,0,0,0], // miner

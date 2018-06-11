@@ -5,6 +5,11 @@ var role_storager = {
         var mycontainer = find_structures.containers(creep);
         var mystorage = creep.room.storage;
         const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
+        var resourceType = []
+        for(resourceType in creep.carry);
+        
+        var containerResources = []
+        for(containerResources in mycontainer.store);
         
         if(linkFrom.energy < linkFrom.energyCapacity){
             if(!creep.carry.energy){
@@ -12,7 +17,7 @@ var role_storager = {
                     creep.moveTo(mystorage);
                 }
                 else{
-                    console.log('storager / err1');
+                    console.log('storager / 1');
                 }
             }
             else{
@@ -21,7 +26,7 @@ var role_storager = {
                     creep.say('to link', true);
                 }
                 else{
-                    console.log('storager / err2');
+                    console.log('storager / 2');
                 }
             }
         }
@@ -29,12 +34,12 @@ var role_storager = {
             if(mycontainer){
                 if(_.sum(creep.carry) == creep.carryCapacity){
                     if(mystorage){
-                        if(creep.transfer(mystorage, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                        if(creep.transfer(mystorage, resourceType) == ERR_NOT_IN_RANGE){
                             creep.moveTo(mystorage);
                             creep.say('!aaaaaaa', true);
                         }
                         else{
-                            console.log('storager / err3');
+                            console.log('storager / 3');
                         }
                     }
                     else{
@@ -42,12 +47,12 @@ var role_storager = {
                     }
                 }
                 else{
-                    if(creep.withdraw(mycontainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+                    if(creep.withdraw(mycontainer, containerResources) == ERR_NOT_IN_RANGE){
                         creep.moveTo(mycontainer);
                         creep.say('!test', true);
                     }
                     else{
-                        console.log('storager / err4');
+                        console.log('storager / 4');
                     }
                 }
             }

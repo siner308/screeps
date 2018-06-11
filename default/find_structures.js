@@ -20,8 +20,8 @@ var find_structures = {
         var containers = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: c => (c.structureType == STRUCTURE_CONTAINER)
                 && (_.sum(c.store) == c.storeCapacity)
-
         });
+        
         return containers;
     },
     
