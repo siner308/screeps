@@ -1,5 +1,4 @@
 var define_role = require('define_role');
-
 var role_harvester = require('role_harvester');
 var role_upgrader = require('role_upgrader');
 var role_builder = require('role_builder');
@@ -10,7 +9,7 @@ var role_cleaner = require('role_cleaner');
 var role_storager = require('role_storager');
 var role_pioneer = require('role_pioneer');
 var role_mineral_harvester = require('role_mineral_harvester');
-
+var role_harvester_origin = require('role_harvester_origin');
 var structure_tower = require('structure_tower');
 
 
@@ -18,6 +17,7 @@ module.exports.loop = function () {
     // 루프문을 위한 변수
     var i = 0;
 
+    // 개체수가 적어졌을때를 대비해서 목표 creep 수를 항상 가지고 있자.
     // 개체수가 적어졌을때를 대비해서 목표 creep 수를 항상 가지고 있자.
     var total_population = 0; // 목표 전체 creep수
     for(i = 0; i < define_role.get_role_population_max().length; i++){
@@ -92,13 +92,19 @@ module.exports.loop = function () {
         if(creep.memory.role == 'mineral_harvester'){
             role_mineral_harvester.run(creep);
         }
+        
+        if(creep.memory.role == 'harvester_origin'){
+            role_harvester_origin.run(creep);
+        }
     }
     
     // get link objects
-    const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
-    const linkTo = Game.rooms['W5N8'].lookForAt('structure', 37, 31)[0];
+    const linkFrom1 = Game.rooms['W5N8'].lookForAt('structure', 21, 22)[0];
+    const linkFrom2 = Game.rooms['W5N8'].lookForAt('structure', 22, 23)[0];
+    const linkTo = Game.rooms['W5N8'].lookForAt('structure', 38, 33)[0];
     // link energy from to
-    linkFrom.transferEnergy(linkTo);
+    linkFrom1.transferEnergy(linkTo);
+    linkFrom2.transferEnergy(linkTo);
     
     // for (var room_name in Game.rooms);
     // links = Game.rooms[room_name].find(FIND_STRUCTURES, {filter: (link) => link.structureType == STRUCTURE_LINK});
@@ -112,13 +118,18 @@ module.exports.loop = function () {
             var type_body = define_role.get_role_spec(define_role.get_body_spec()[i]);
             // 3마리 이하인데 현재 에너지가 별로 없다면.
             // console.log(creep_count + ' ' + energy_for_creep);
-            if(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep){
-                Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,1,1,0,0,0,0,0]), 'default_' + define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
-                console.log(define_role.get_role_name()[i] + ' is spawned');
+            if(creep_count < 3){
+                Game.spawns['spawn_first'].spawnCreep([WORK, MOVE, CARRY], 'h_o_' + Game.time, {memory: {role: 'harvester_origin'}});
             }
             else{
-                Game.spawns['spawn_first'].spawnCreep(type_body, define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
-                console.log(define_role.get_role_name()[i] + ' is spawned');
+                if(creep_count < emergency_creep_count && energy_for_creep < emergency_energy_for_creep){
+                    Game.spawns['spawn_first'].spawnCreep(define_role.get_role_spec([1,2,1,0,0,0,0,0]), 'default_' + define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                    console.log(define_role.get_role_name()[i] + ' is spawned');
+                }
+                else{
+                    Game.spawns['spawn_first'].spawnCreep(type_body, define_role.get_role_type()[i] + Game.time, {memory: {role: define_role.get_role_name()[i]}});
+                    console.log(define_role.get_role_name()[i] + ' is spawned');
+                }
             }
         }
     }

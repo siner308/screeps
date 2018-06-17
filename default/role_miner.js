@@ -11,7 +11,6 @@ var role_miner = {
         // if not in workplace, moveTo workplace
         if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE){
             creep.moveTo(sources[1]);
-            creep.say('마이너당', true);
         }
 
         // if arrived workplace, let's mining
@@ -26,10 +25,6 @@ var role_miner = {
                 if(creep.pos == container){
                     creep.harvest(sources[1]);
                     creep.transfer(container, RESOURCE_ENERGY);
-                    // creep.say('⛏', true);
-                }
-                else{
-                    creep.moveTo(container);
                     // creep.say('⛏', true);
                 }
             }

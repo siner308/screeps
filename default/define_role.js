@@ -16,17 +16,6 @@ module.exports = {
     },
     
     get_role_type: function(){
-        // var dict = {
-        //     harvester: "c_h_",
-        //     upgrader : "c_u_",
-        //     builder  : "c_b_",
-        //     repairer : "c_r_",
-        //     miner    : "c_m_",
-        //     miner2   : "c_m2_",
-        //     cleaner  : "c_c_",
-        //     storager : "c_s_"
-        // }
-        // console.log(dict.harvester);
         return [
             "c_h_",
             "c_u_",
@@ -43,15 +32,15 @@ module.exports = {
     get_role_population_max: function(){
         return [
             3,  // harvester
-            2, // upgrader
+            4, // upgrader
             1,  // builder
-            1,  // repairer
+            0,  // repairer
             1,   // miner
             1,   // miner2
             1,   // cleaner
             1,   // storager
             2,    // pioneer
-            1   // mineral harvester
+            0   // mineral harvester
           ]
     },
     
@@ -59,12 +48,12 @@ module.exports = {
         // MOVE, WORK, CARRY, ATTACK, RANGED_ATTACK, HEAL, CLAIM, TOUGH
         return [
             [5,5,7,0,0,0,0,0], // harvester
-            [5,6,3,0,0,0,0,0], // upgrader
+            [5,10,5,0,0,0,0,0], // upgrader
             [5,5,3,0,0,0,0,0], // builder
             [5,5,3,0,0,0,0,0], // repairer
             [1,5,0,0,0,0,0,0], // miner
             [1,5,0,0,0,0,0,0], // miner2
-            [5,5,5,0,0,0,0,0],  // cleaner
+            [10,1,10,0,0,0,0,0],  // cleaner
             [5,0,3,0,0,0,0,0],   // storager
             [6,3,3,0,0,0,0,0],   // pioneer
             [5,5,3,0,0,0,0,0]   // mineral_harvester

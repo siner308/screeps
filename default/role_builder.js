@@ -3,21 +3,6 @@ var role_harvester = require('role_harvester');
 
 var role_builder = {
     run: function(creep){
-        // var i = 0, cnt = 0;
-        // var construction_sites = [];
-        // var container = find_structures.containers(creep);
-        // for (var room_name in Game.rooms);
-        // // console.log('rooms : ' + room_name.length);
-        // console.log(Game.rooms[room_name]);
-        //     // if(Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES)){
-        // for(j = 0; j < Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES).length; j++){
-        //     construction_sites[cnt] = Game.rooms[room_name].find(FIND_MY_CONSTRUCTION_SITES)[j];
-        //     cnt++;
-        // }
-            // }
-        // }
-        // console.log(construction_sites.length);
-        // var mystorage2 = Game.rooms[room_name].find(FIND_MY_STRUCTURES, {filter : (s) => s.structureType == STRUCTURE_STORAGE});
         var mystorage = creep.room.storage;
         var sources = creep.room.find(FIND_SOURCES);
         var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
@@ -41,11 +26,6 @@ var role_builder = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                     creep.say('☄️', true);
                 }
-                // 건설지에 도착했다면, 건설하자.
-                else{
-                    creep.build(targets[0]);
-                    creep.say('☄️', true);
-                }
             }
             // 지을 건물이 없다면, 휴식지로 가서 쉬자.
             else{
@@ -61,25 +41,13 @@ var role_builder = {
                         creep.moveTo(mystorage.pos);
                         creep.say('가지러가즈아', true)
                     }
-                    else{
-                        creep.withdraw(mystorage, RESOURCE_ENERGY);
-                        creep.say('머냥', true)
-                    }
                 }
                 else{
-                    creep.say('머냥!', true);
+                    creep.say('full storage', true);
                 }
             }
             else{
                 role_harvester.run(creep);
-                // if(creep.harvest(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-                //     creep.moveTo(sources[0]);
-                //     creep.say('내가캐고말지!', true);
-                // }
-                // else{
-                //     creep.harvest(sources[0], RESOURCE_ENERGY);
-                //     creep.say('내가캐고있다!', true);
-                // }
             }
         }
     }

@@ -1,10 +1,6 @@
 class Creep{
-    harvester(creep){
-        run: function{
-            sdlkfjlskdjflkj;
-        }
+    run: function(creep){
+        
     }
 }
-module.exports = {
-
-};
+module.exports = Creep;

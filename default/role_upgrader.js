@@ -8,7 +8,7 @@ var role_upgrader = {
         var mystorage = creep.room.storage;
         
         // get link pos
-        const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 37, 31)[0];
+        const linkFrom = Game.rooms['W5N8'].lookForAt('structure', 38, 33)[0];
         
         var sources = creep.room.find(FIND_SOURCES);
         // controller가 멀리 있다면, 에너지 상태를 확인하고, withdraw하거나 controller로 이동한다.
@@ -20,9 +20,6 @@ var role_upgrader = {
                     if(creep.withdraw(linkFrom, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                         creep.moveTo(linkFrom);
                     }
-                    else{
-                        creep.withdraw(linkFrom, RESOURCE_ENERGY);
-                    }
                 }
                 else{
                     if (mystorage.store[RESOURCE_ENERGY]){
@@ -30,18 +27,11 @@ var role_upgrader = {
                             creep.moveTo(mystorage);
                             creep.say('⛏️<<⏫', true);
                         }
-                        else{
-                            creep.withdraw(mystorage, RESOURCE_ENERGY);
-                            creep.say('⛏', true);
-                        }
                     }
                     else{
                         if(creep.harvest(sources[1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                             creep.moveTo(sources[1]);
                             creep.say('내가캐고말지!', true);
-                        }
-                        else{
-                            creep.harvest(sources[1], RESOURCE_ENERGY);
                         }
                     }
                 }
@@ -61,10 +51,6 @@ var role_upgrader = {
                         creep.moveTo(linkFrom);
                         creep.say('가깝군!', true);
                     }
-                    else{
-                        creep.withdraw(linkFrom, RESOURCE_ENERGY);
-                        creep.say('가깝군!', true);
-                    }
                 }
                 else{
                     // 에너지를 가져올 장소가 있다면, 멀리있는지 확인해보자.
@@ -73,19 +59,11 @@ var role_upgrader = {
                             creep.moveTo(mystorage);
                             creep.say('⛏️<<⏫', true);
                         }
-                        else{
-                            creep.withdraw(mystorage, RESOURCE_ENERGY);
-                            creep.say('⛏', true);
-                        }
                     }
                     else{
                         if(creep.harvest(sources[1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
                             creep.moveTo(sources[1]);
                             creep.say('내가캐고말지!', true);
-                        }
-                        else{
-                            creep.harvest(sources[1], RESOURCE_ENERGY);
-                            creep.say('채굴채굴', true);
                         }
                     }
                 }
@@ -93,7 +71,7 @@ var role_upgrader = {
             // 들고있는 에너지가 있다면, controller로 transfer한다.
             else{
                 creep.upgradeController(creep.room.controller);
-                creep.say('⏫' + creep.carry.energy, true);
+                creep.say(creep.carry.energy/10, true);
             }
         }
     }

@@ -2,7 +2,7 @@ var find_structures = {
     containers: function(creep){
         var containers = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: c => (c.structureType == STRUCTURE_CONTAINER)
-                && (_.sum(c.store) != 0)
+                && (_.sum(c.store) > 150)
         });
         
         // var retVal = containers[0];
